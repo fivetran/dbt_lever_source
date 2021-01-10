@@ -23,7 +23,10 @@ final as (
     
     select 
         posting_id,
-        tag,
+        {% if target.type == 'redshift' %}
+        "tag"
+        {% else %} tag {% endif %}
+        ,
         _fivetran_synced
 
     from fields

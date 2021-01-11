@@ -42,12 +42,12 @@ final as (
         note,
         stage_id,
         {% if target.type == 'snowflake' %}
-        "start"
+        "START"
         {% else %}
         start
         {% endif %}
         as first_interview_starts_at,
-        
+
         timezone
         
     from fields

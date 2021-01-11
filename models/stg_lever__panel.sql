@@ -22,7 +22,7 @@ fields as (
 final as (
     
     select 
-        _fivetran_synced,
+        "_FIVETRAN_SYNCED",
         canceled_at,
         created_at,
         creator_id as creator_user_id,

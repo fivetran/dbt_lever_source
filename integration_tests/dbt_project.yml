@@ -77,7 +77,7 @@ seeds:
         end: timestamp
         start: timestamp
       +quote_columns: "{{ true if target.type == 'redshift' else false }}"
-      +enabled: "{{ false if target.type != 'snowflake' else true }}"
+      +enabled: "{{ true if target.type != 'snowflake' else false }}"
     panel_snowflake:
       +column_types:
         canceled_at: timestamp

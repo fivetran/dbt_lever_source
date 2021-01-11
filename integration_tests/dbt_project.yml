@@ -76,7 +76,7 @@ seeds:
         created_at: timestamp 
         end: timestamp
         start: timestamp
-      +quote_columns: "{{ true if target.name == 'redshift' else false }}"
+      +quote_columns: "{{ true if target.name == 'redshift' or target.name == 'snowflake' else false }}"
     posting:
       +column_types:
         created_at: timestamp

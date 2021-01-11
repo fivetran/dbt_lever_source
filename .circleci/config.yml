@@ -41,7 +41,7 @@ jobs:
             echo `pwd`
             cd integration_tests
             dbt deps
-            dbt seed --target snowflake
+            dbt seed --target snowflake --full-refresh
             dbt run --target snowflake --full-refresh
             dbt test --target snowflake
       - run:

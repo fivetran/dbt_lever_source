@@ -1,8 +1,8 @@
 {% macro get_panel_columns() %}
 
 {% set columns = [
-    {"name": "_fivetran_synced", "datatype": dbt_utils.type_timestamp(), "quote": True},
-    {"name": "canceled_at", "datatype": dbt_utils.type_timestamp(), "quote": true},
+    {"name": "_fivetran_synced", "datatype": dbt_utils.type_timestamp()},
+    {"name": "canceled_at", "datatype": dbt_utils.type_timestamp()},
     {"name": "created_at", "datatype": dbt_utils.type_timestamp() },
     {"name": "creator_id", "datatype": dbt_utils.type_string()},
     {"name": "end", "datatype": dbt_utils.type_timestamp(), "quote": True },
@@ -17,7 +17,7 @@
 ] %}
 
 {% if target.type == 'snowflake' %}
- {{ columns.append( {"name": "start", "datatype": dbt_utils.type_timestamp(), "quote": True } ) }}
+ {{ columns.append( {"name": "START", "datatype": dbt_utils.type_timestamp(), "quote": True } ) }}
 {% else %}
  {{ columns.append( {"name": "start", "datatype": dbt_utils.type_timestamp()} ) }}
 {% endif %}

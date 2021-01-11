@@ -1,7 +1,7 @@
 name: 'lever_source_integration_tests'
 version: '1.0.0'
 config-version: 2
-profile: 'integration_tests'
+profile: 'integration_test'
 
 
 vars:
@@ -20,7 +20,7 @@ vars:
     opportunity: "{{ ref('opportunity') }}"
     panel_application: "{{ ref('panel_application') }}"
     panel_interview: "{{ ref('panel_interview') }}"
-    panel: "{{ ref('panel') }}"
+    panel: "{{ snowflake_seed_data('panel') }}"
     posting_interview: "{{ ref('posting_interview') }}"
     posting_tag: "{{ ref('posting_tag') }}"
     posting: "{{ ref('posting') }}"
@@ -76,13 +76,13 @@ seeds:
         created_at: timestamp 
         end: timestamp
         start: timestamp
-      +quote_columns: "{{ true if target.type == 'redshift' or target.type == 'snowflake' else false }}"
+      +quote_columns: "{{ true if target.type == 'redshift' else false }}"
     posting:
       +column_types:
         created_at: timestamp
         updated_at: timestamp
     posting_tag:
-      +quote_columns: true
+      +quote_columns: "{{ true if target.type == 'redshift' else false }}"
     requisition:
       +column_types:
         created_at: timestamp

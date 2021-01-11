@@ -21,7 +21,13 @@ fields as (
 
 final as (
     
-    select *
+    select 
+        opportunity_id,
+        {% if target.type == 'redshift' %}
+        "tag"
+        {% else %} tag {% endif %}
+        as tag_name,
+        _fivetran_synced
     from fields
 )
 

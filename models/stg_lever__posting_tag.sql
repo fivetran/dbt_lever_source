@@ -26,7 +26,7 @@ final as (
         {% if target.type == 'redshift' %}
         "tag"
         {% else %} tag {% endif %}
-        ,
+        as tag_name,
         _fivetran_synced
 
     from fields

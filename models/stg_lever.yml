@@ -112,10 +112,15 @@ models:
 
   - name: stg_lever__posting_tag
     description: Table associating job postings with all associated tags.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns: 
+            - posting_id
+            - tag_name
     columns:
       - name: posting_id
         description: Foreign key referencing the id of the job POSTING.
-      - name: tag 
+      - name: tag_name
         description: Text of the posting's individual tag.
 
   - name: stg_lever__posting_interview
@@ -207,11 +212,11 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns: 
             - opportunity_id
-            - tag 
+            - tag_name
     columns:
       - name: opportunity_id
         description: Foreign key referencing the OPPORTUNITY that was tagged.
-      - name: tag
+      - name: tag_name
         description: Text of the tag associated with this opportunity.
 
   - name: stg_lever__application

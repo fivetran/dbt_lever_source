@@ -5,7 +5,6 @@
     {"name": "canceled_at", "datatype": dbt_utils.type_timestamp()},
     {"name": "created_at", "datatype": dbt_utils.type_timestamp() },
     {"name": "creator_id", "datatype": dbt_utils.type_string()},
-    {"name": "end", "datatype": dbt_utils.type_timestamp(), "quote": True },
     {"name": "external_url", "datatype": dbt_utils.type_string()},
     {"name": "externally_managed", "datatype": "boolean"},
     {"name": "feedback_reminder", "datatype": dbt_utils.type_string()},
@@ -18,8 +17,10 @@
 
 {% if target.type == 'snowflake' %}
  {{ columns.append( {"name": "START", "datatype": dbt_utils.type_timestamp(), "quote": True } ) }}
+ {{ columns.append( {"name": "end", "datatype": dbt_utils.type_timestamp() } ) }}
 {% else %}
  {{ columns.append( {"name": "start", "datatype": dbt_utils.type_timestamp()} ) }}
+ {{ columns.append( {"name": "end", "datatype": dbt_utils.type_timestamp(), "quote": True} ) }}
 {% endif %}
 
 {{ return(columns) }}

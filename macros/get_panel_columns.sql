@@ -1,7 +1,7 @@
 {% macro get_panel_columns() %}
 
 {% set columns = [
-    {"name": "_fivetran_synced", "datatype": dbt_utils.type_timestamp()},
+    {"name": "_fivetran_synced", "datatype": dbt_utils.type_timestamp(), "quote": true},
     {"name": "canceled_at", "datatype": dbt_utils.type_timestamp()},
     {"name": "created_at", "datatype": dbt_utils.type_timestamp()},
     {"name": "creator_id", "datatype": dbt_utils.type_string()},

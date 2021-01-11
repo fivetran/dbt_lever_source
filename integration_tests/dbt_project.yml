@@ -1,7 +1,7 @@
 name: 'lever_source_integration_tests'
 version: '1.0.0'
 config-version: 2
-profile: 'integration_tests'
+profile: 'integration_test'
 
 
 vars:
@@ -83,7 +83,6 @@ seeds:
         canceled_at: timestamp
         created_at: timestamp 
         end: timestamp
-        START: timestamp
       +enabled: "{{ true if target.type == 'snowflake' else false }}"
     posting:
       +column_types:

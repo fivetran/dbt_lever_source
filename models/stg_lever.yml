@@ -527,7 +527,7 @@ models:
       - name: job_team
         description: The team associated with the requisition
 
-  - name: requisition_posting
+  - name: stg_lever__requisition_posting
     description: Table relating requsitions to positings.
     tests:
       - dbt_utils.unique_combination_of_columns:

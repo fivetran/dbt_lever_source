@@ -26,7 +26,15 @@ final as (
         canceled_at,
         created_at,
         creator_id as creator_user_id,
-        'end' as last_interview_ends_at,
+
+        {% if target.type == 'redshift' %}
+        "end"
+        {% elif target.type == 'bigquery' %}
+        `end`
+        {% else %}
+        end 
+        {% endif %}
+        as last_interview_ends_at,
         external_url,
         {# externally_managed as is_externally_managed, #}
         feedback_reminder as feedback_reminder_frequency,

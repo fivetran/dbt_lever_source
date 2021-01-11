@@ -30,7 +30,7 @@ final as (
         _fivetran_synced
 
     from fields
-    where not coalesce("_FIVETRAN_DELETED", false)
+    where not coalesce(_fivetran_deleted, false)
 )
 
 select * from final

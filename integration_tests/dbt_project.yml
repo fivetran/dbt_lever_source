@@ -44,8 +44,8 @@ seeds:
         deleted_at: timestamp
     feedback_form_field:
       +column_types:
-        field_index: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
-        value_index: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
+        field_index: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
+        value_index: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
         value_date: timestamp
         value_decimal: numeric
     interview:
@@ -53,7 +53,7 @@ seeds:
         canceled_at: timestamp
         created_at: timestamp
         date: timestamp
-        duration: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
+        duration: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
     offer:
       +column_types:
         created_at: timestamp
@@ -76,7 +76,7 @@ seeds:
         created_at: timestamp 
         end: timestamp
         start: timestamp
-      +quote_columns: "{{ true if target.name == 'redshift' or target.name == 'snowflake' else false }}"
+      +quote_columns: "{{ true if target.type == 'redshift' or target.type == 'snowflake' else false }}"
     posting:
       +column_types:
         created_at: timestamp
@@ -88,10 +88,10 @@ seeds:
         created_at: timestamp
     template_field:
       +column_types:
-        field_index: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
+        field_index: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
     user:
       +column_types:
         created_at: timestamp
         deactivated_at: timestamp
     opportunity_tag:
-      +quote_columns: "{{ true if target.name == 'redshift' else false }}"
+      +quote_columns: "{{ true if target.type == 'redshift' else false }}"

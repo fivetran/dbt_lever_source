@@ -31,6 +31,8 @@ vars:
     requisition: "{{ source('lever', 'requisition') }}"
     stage: "{{ source('lever', 'stage') }}"
     user: "{{ source('lever', 'user') }}"
+    contact_email: "{{ source('lever', 'contact_email') }}"
+    contact_phone: "{{ source('lever', 'contact_phone') }}"
 
 models: 
   materialized: table # for building the package, switch to views later? 

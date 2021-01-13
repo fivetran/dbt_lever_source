@@ -1,7 +1,7 @@
 > Fivetran's starter project which acts as the foundation to building dbt packages
 > Here's a template of the README for both transformation + source packages
 
-# [Connector Name] ([docs](home page of the netlify-hosted docs site)) 
+# [Jira source] ([docs](home page of the netlify-hosted docs site)) 
 
 This package models [connector name] data from [Fivetran's connector](https://fivetran.com/docs/applications/connector). It uses data in the format described by [this ERD](link to the connector ERD).
 
@@ -13,16 +13,6 @@ This package models [connector name] data from [Fivetran's connector](https://fi
 
 ## Compatibility (if needed)
 > Please be aware the [dbt_connector](https://github.com/fivetran/dbt_connector) and [dbt_connector_source](https://github.com/fivetran/dbt_connector_source) packages will only work with the [Fivetran connector schema](https://fivetran.com/docs/applications/connector/changelog) released after [some date]. If your Jira connector was set up prior to [some date], you will need to fully resync or set up a new [connector name] connector in order for the Fivetran dbt [connector] packages to work.
-
-
-## Models - transformation package version
-
-This package contains transformation models, designed to work simultaneously with our [Connector source package](link to source package repo). A dependency on the source package is declared in this package's `packages.yml` file, so it will automatically download when you run `dbt deps`. The primary outputs of this package are described below. Intermediate models are used to create these output models.
-
-| **model**                | **description**                                                                                                                                |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| [conector__model_1](link to model sql file on github)             | toot toot |
-| [conector__model_2](link to model sql file on github)             | beep beep |
 
 ## Models - source package version
 

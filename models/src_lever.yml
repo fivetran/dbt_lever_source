@@ -225,8 +225,6 @@ sources:
             description: Timestamp of when the application was last archived.
           - name: archived_reason_id
             description: Foreign key referencing the id of the ARCHIVE_REASON for which the application was last archived.
-          - name: candidate_id
-            description: This field is deprecated - use `opportunity_id` instead!
           - name: comments
             description: Any additional comments from the candidate included in the job application.
           - name: company
@@ -499,3 +497,23 @@ sources:
             description: Foreign key referencing the REQUISITION associated with this posting. 
           - name: _fivetran_deleted
             description: Boolean that is true if the requisition-posting relationship has been soft-deleted.
+      
+      - name: contact_email
+        description: Table capturing the emails associated with a contact. 
+        columns:
+          - name: contact_id
+            description: Unique ID of the contact in Lever. 
+          - name: email 
+            description: Contact's email address.
+
+      - name: contact_phone 
+        description: Table capturing the phone numbers associated with a contact. 
+        columns:
+          - name: contact_id
+            description: Unique ID of the contact in Lever. 
+          - name: index
+            description: The index of this phone number for this contact (there can be multiple phone numbers per contact).
+          - name: type
+            description: Type of phone number, either "mobile", "home", "work", "skype", or "other".
+          - name: value
+            description: The contact's provided phone number.

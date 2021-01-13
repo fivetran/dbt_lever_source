@@ -539,3 +539,33 @@ models:
         description: Foreign key referencing the POSTING created for this requisition.
       - name: requisition_id
         description: Foreign key referencing the REQUISITION associated with this posting. 
+
+  - name: stg_lever__contact_email
+    description: Table capturing the emails associated with a contact. 
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns: 
+            - contact_id
+            - email
+    columns:
+      - name: contact_id
+        description: Unique ID of the contact in Lever. 
+      - name: email 
+        description: Contact's email address.
+
+  - name: stg_lever__contact_phone 
+    description: Table capturing the phone numbers associated with a contact. 
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns: 
+            - contact_id
+            - index
+    columns:
+      - name: contact_id
+        description: Unique ID of the contact in Lever. 
+      - name: index
+        description: The index of this phone number for this contact (there can be multiple phone numbers per contact).
+      - name: phone_type
+        description: Type of phone number, either "mobile", "home", "work", "skype", or "other".
+      - name: phone_number
+        description: The contact's provided phone number.

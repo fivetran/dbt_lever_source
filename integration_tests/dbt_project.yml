@@ -28,6 +28,8 @@ vars:
     requisition: "{{ ref('requisition') }}"
     stage: "{{ ref('stage') }}"
     user: "{{ ref('user') }}"
+    contact_email: "{{ ref('contact_email') }}"
+    contact_phone: "{{ ref('contact_phone') }}"
 
 seeds:
   lever_source_integration_tests:
@@ -102,3 +104,7 @@ seeds:
         deactivated_at: timestamp
     opportunity_tag:
       +quote_columns: "{{ true if target.type == 'redshift' else false }}"
+    contact_phone:
+      +column_types:
+        index: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
+        value: "{{ 'string' if target.name == 'bigquery' else 'varchar' }}"

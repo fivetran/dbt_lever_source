@@ -517,3 +517,6 @@ sources:
             description: Type of phone number, either "mobile", "home", "work", "skype", or "other".
           - name: value
             description: The contact's provided phone number.
+      
+      - name: requisition_offer
+        description: TODO!

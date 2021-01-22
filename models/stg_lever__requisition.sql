@@ -19,6 +19,7 @@ fields as (
     from base
 ),
 
+-- todo: add custom passthrough columns for req
 final as (
     
     select 

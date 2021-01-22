@@ -1,5 +1,5 @@
 name: 'lever_source_integration_tests'
-version: '1.0.0'
+version: '0.1.0'
 config-version: 2
 profile: 'integration_tests'
 
@@ -25,6 +25,7 @@ vars:
     posting_tag: "{{ ref('posting_tag') }}"
     posting: "{{ ref('posting') }}"
     requisition_posting: "{{ ref('requisition_posting') }}"
+    requisition_offer: "{{ ref('requisition_offer') }}"
     requisition: "{{ ref('requisition') }}"
     stage: "{{ ref('stage') }}"
     user: "{{ ref('user') }}"

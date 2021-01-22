@@ -5,8 +5,6 @@ require-dbt-version: [">=0.18.0", "<0.19.0"]
 
 
 vars:
-  lever_database: private-internal 
-  lever_schema: lever_opp
 
   lever_source:
     application: "{{ source('lever', 'application') }}"
@@ -29,6 +27,7 @@ vars:
     posting: "{{ source('lever', 'posting') }}"
     requisition_posting: "{{ source('lever', 'requisition_posting') }}"
     requisition: "{{ source('lever', 'requisition') }}"
+    requisition_offer: "{{ source('lever', 'requisition_offer') }}"
     stage: "{{ source('lever', 'stage') }}"
     user: "{{ source('lever', 'user') }}"
     contact_email: "{{ source('lever', 'contact_email') }}"
@@ -36,5 +35,3 @@ vars:
 
 models: 
   materialized: table # for building the package, switch to views later? 
-
-profile: dev_bigquery_dbt_testing

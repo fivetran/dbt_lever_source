@@ -31,6 +31,8 @@ vars:
     user: "{{ ref('user') }}"
     contact_email: "{{ ref('contact_email') }}"
     contact_phone: "{{ ref('contact_phone') }}"
+    contact_link: "{{ ref('contact_link') }}"
+    resume: "{{ ref('resume') }}"
 
 seeds:
   lever_source_integration_tests:
@@ -109,3 +111,13 @@ seeds:
       +column_types:
         index: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
         value: "{{ 'string' if target.name == 'bigquery' else 'varchar' }}"
+    contact_link:
+      +column_types:
+        contact_id: "{{ 'string' if target.name == 'bigquery' else 'varchar' }}"
+        link: "{{ 'string' if target.name == 'bigquery' else 'varchar' }}"
+    resume:
+      +column_types:
+        id: "{{ 'string' if target.name == 'bigquery' else 'varchar' }}"
+        file_ext: "{{ 'string' if target.name == 'bigquery' else 'varchar' }}"
+        created_at: timestamp
+        file_uploaded_at: timestamp

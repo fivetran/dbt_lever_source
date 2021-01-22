@@ -520,3 +520,5 @@ sources:
       
       - name: requisition_offer
         description: TODO!
+      - name: contact_link
+      - name: resume

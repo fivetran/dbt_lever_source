@@ -569,3 +569,5 @@ models:
         description: Type of phone number, either "mobile", "home", "work", "skype", or "other".
       - name: phone_number
         description: The contact's provided phone number.
+  
+      # add requisition_offer, resume, contact_link

@@ -25,6 +25,7 @@ vars:
     posting_tag: "{{ ref('posting_tag') }}"
     posting: "{{ ref('posting') }}"
     requisition_posting: "{{ ref('requisition_posting') }}"
+    requisition_offer: "{{ ref('requisition_offer') }}"
     requisition: "{{ ref('requisition') }}"
     stage: "{{ ref('stage') }}"
     user: "{{ ref('user') }}"

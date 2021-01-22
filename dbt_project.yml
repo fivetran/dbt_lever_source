@@ -27,6 +27,7 @@ vars:
     posting: "{{ source('lever', 'posting') }}"
     requisition_posting: "{{ source('lever', 'requisition_posting') }}"
     requisition: "{{ source('lever', 'requisition') }}"
+    requisition_offer: "{{ source('lever', 'requisition_offer') }}"
     stage: "{{ source('lever', 'stage') }}"
     user: "{{ source('lever', 'user') }}"
     contact_email: "{{ source('lever', 'contact_email') }}"

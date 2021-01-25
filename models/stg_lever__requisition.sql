@@ -34,7 +34,7 @@ final as (
         
         employment_status,
         headcount_hired,
-        headcount_infinite, -- todo find out what this is
+        headcount_infinite, 
         headcount_total as headcount_total_allotted,
         hiring_manager_id as hiring_manager_user_id,
         id as requisition_id,

@@ -519,6 +519,37 @@ sources:
             description: The contact's provided phone number.
       
       - name: requisition_offer
-        description: TODO!
+        description: Table relating offers to their associated requisitions.
+        columns:
+          - name: offer_id
+            description: Foriegn key referencing the OFFER for the requisition. 
+          - name: requisition_id
+            description: Foriegn key referencing the REQUISITION which the offer was made against. 
+          - name: _fivetran_deleted
+            description: Boolean that is true if the offer-requisition relationship has been soft-deleted.
+
       - name: contact_link
+        description: Table of all links associated with an opportunity contact (ie linkedin, github repos, personal websites).
+        columns:
+          - name: contact_id
+            description: Unique id of the contact associated with one or more opportunities.
+          - name: link
+            description: Url of the individual link.
+          
       - name: resume
+        description: Table capturing resumes submitted by opportunities.
+        columns:
+          - name: id  
+            description: Unique id of the resume file. 
+          - name: created_at
+            description: Timestamp of when the resume was created in Lever. 
+          - name: file_download_url
+            description: Resume file download URL.
+          - name: file_ext
+            description: Resume file extension.
+          - name: file_name
+            description: Name of the file uploaded.
+          - name: file_uploaded_at  
+            description: Timestamp of when the file was uploaded.
+          - name: opportunity_id
+            description: Foreign key referencing the OPPORTUNITY associated with this resume. 

@@ -45,6 +45,11 @@ final as (
         requisition_code,
         status,
         team as job_team
+
+        {% if var('lever_requisition_passthrough_columns', []) != [] %}
+        ,
+        {{ var('lever_requisition_passthrough_columns', [] )  | join(', ') }}
+        {% endif %}
         
     from fields
 

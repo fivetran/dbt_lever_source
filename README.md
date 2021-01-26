@@ -1,13 +1,12 @@
-# [Lever source] ([docs](home page of the netlify-hosted docs site)) 
+# Lever Source
 
 This package models Lever data from [Fivetran's opportunity-endpoint Lever connector](https://fivetran.com/docs/applications/lever). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/lever#schemainformation).
 
-This package aims to 
-[High level objective of package]. It achieves this by:
-- [major thing the package does #1]
-- 
-- [ #3]
-...
+This package aims to help you understand trends in recruiting, interviewing, and hiring at your company, as well as empower recruiting stakeholders with all potentially relevant information about individual opportunities, interviews, and jobs. It achieves this by:
+- Enriching the core opportunity, interview, job posting, and requisition tables with relevant pipeline data and metrics
+- Integrating the interview table with individual feedback and information regarding the employees involved
+- Calculating the velocity of opportunities through each pipeline stage, alongside major job and candidate-related attributes for segmented funnel analysis
+
 
 ## Compatibility (if needed)
 > Please be aware the [dbt_lever](https://github.com/fivetran/dbt_lever) and [dbt_lever_source](https://github.com/fivetran/dbt_lever_source) packages will only work with the [Fivetran opportunity-endpoint lever schema](https://fivetran.com/docs/applications/connector/changelog). If your Lever connector was set up prior to this change or is otherwise still using the candidate-endpoint, you will need to fully resync or set up a new Lever connector in order for the Fivetran dbt Lever packages to work.

@@ -18,9 +18,6 @@ vars:
     opportunity_stage_history: "{{ ref('opportunity_stage_history') }}"
     opportunity_tag: "{{ ref('opportunity_tag') }}"
     opportunity: "{{ ref('opportunity') }}"
-    panel_application: "{{ ref('panel_application') }}"
-    panel_interview: "{{ ref('panel_interview') }}"
-    panel: "{{ snowflake_seed_data('panel') }}"
     posting_interview: "{{ ref('posting_interview') }}"
     posting_tag: "{{ ref('posting_tag') }}"
     posting: "{{ ref('posting') }}"
@@ -75,20 +72,6 @@ seeds:
     opportunity_stage_history:
       +column_types:
         updated_at: timestamp
-    panel:
-      +column_types:
-        canceled_at: timestamp
-        created_at: timestamp 
-        end: timestamp
-        start: timestamp
-      +quote_columns: "{{ true if target.type == 'redshift' else false }}"
-      +enabled: "{{ true if target.type != 'snowflake' else false }}"
-    panel_snowflake:
-      +column_types:
-        canceled_at: timestamp
-        created_at: timestamp 
-        end: timestamp
-      +enabled: "{{ true if target.type == 'snowflake' else false }}"
     posting:
       +column_types:
         created_at: timestamp

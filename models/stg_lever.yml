@@ -343,65 +343,6 @@ models:
       - name: opportunity_id
         description: Foreign key referencing the OPPORTUNITY being interviewed for. 
 
-  - name: stg_lever__panel 
-    description: >
-      Table capturing interview panels, which each contain a series of interviews that will take place for a 
-      given candidate during a stage in their opportunity journey.
-    columns:
-      - name: panel_id 
-        description: Unique id of the panels. 
-        tests:
-          - unique
-          - not_null
-      - name: canceled_at
-        description: Timestamp of when the panel was canceled.
-      - name: created_at
-        description: Timestamp of when the panel was created.
-      - name: creator_user_id
-        description: Foreign key referencing the USER that created the panel. 
-      - name: last_interview_ends_at
-        description: Timestamp of when the last interview in the panel ends. 
-      - name: external_url
-        description: URL that links to an external entity associated with this interview.
-      - name: feedback_reminder_frequency
-        description: >
-          Frequency of feedback reminders (i.e. once, daily, frequently, none). Defaults to 'frequently',
-          which is every 6 hours
-      - name: note 
-        description: Note on the panel.
-      - name: stage_id
-        description: Foreign key referencing the STAGE that the candidate was in when the panel was scheduled. 
-      - name: first_interview_starts_at
-        description: Timestamp of when the first interview in the panel started. 
-      - name: timezone
-        description: Name of timezone in which panel was scheduled to occur.
-
-  - name: stg_lever__panel_interview
-    description: Table relating panels to their indiviudal interviews. 
-    tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns: 
-            - interview_id
-            - panel_id 
-    columns:
-      - name: interview_id
-        description: Foreign key referencing the INTERVIEW included in this panel.
-      - name: panel_id
-        description: Foreign key referencing the PANEL containing this interview.
-
-  - name: stg_lever__panel_application
-    description: Table relating panels to their candidate's application.
-    tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns: 
-            - application_id
-            - panel_id 
-    columns:
-      - name: application_id
-        description: Foreign key referencing the APPLICATION that the candidate submitted for this opportunity.
-      - name: panel_id  
-        description: Foreign key referencing the PANEL interviewing the candidate. 
-
   - name: stg_lever__interview_feedback
     description: Table associating interviews with their feedback forms. 
     tests:
@@ -570,7 +511,7 @@ models:
       - name: phone_number
         description: The contact's provided phone number.
   
-      # add requisition_offer, resume, contact_link
+      # add requisition_offer, resume, contact_link tests
   - name: stg_lever__requisition_offer
     description: Table relating offers to their associated requisitions.
     columns:

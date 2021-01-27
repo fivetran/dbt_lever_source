@@ -1,3 +1,4 @@
+{{ config(enabled=var('lever_using_requisitions', True)) }}
 
 with base as (
 

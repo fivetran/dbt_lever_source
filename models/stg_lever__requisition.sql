@@ -1,3 +1,4 @@
+{{ config(enabled=var('lever_using_requisitions', True)) }}
 
 with base as (
 
@@ -19,7 +20,6 @@ fields as (
     from base
 ),
 
--- todo: add custom passthrough columns for req
 final as (
     
     select 

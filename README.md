@@ -18,7 +18,7 @@ This package contains staging models, designed to work simultaneously with our [
     * Boolean fields are prefixed with `is_` or `has_`
     * Timestamps are appended with `_at`
     * ID primary keys are prefixed with the name of the table.  For example, a user table's ID column is renamed `user_id`.
-    * Foreign keys include the table that they refer to. For example, a project table's owner ID column is renamed owner_user_id.
+    * Foreign keys include the table that they refer to. For example, a interview's interview user ID column is renamed `interviewer_user_id`.
 
 ## Installation Instructions
 Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions, or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
@@ -38,7 +38,7 @@ vars:
 ```
 
 ### Passing Through Custom Requisition Columns
-The `REQUISITION` table may have custom columns (all prefixed by `custom_field_`). To pass these columns through to any downstream requisition models (ie `lever__requisition_enhanced`), add the following variable to your `dbt_project.yml` file:
+The `REQUISITION` table may have custom columns (all prefixed by `custom_field_`). To pass these columns through to the [final requisition model](https://github.com/fivetran/dbt_lever/blob/master/models/lever__requisition_enhanced.sql), add the following variable to your `dbt_project.yml` file:
 
 ```yml
 # dbt_project.yml
@@ -47,7 +47,6 @@ The `REQUISITION` table may have custom columns (all prefixed by `custom_field_`
 config-version: 2
 
 vars:
-  lever:
     lever_requisition_passthrough_columns: ['the', 'list', 'of', 'fields']
 ```
 

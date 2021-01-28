@@ -3,10 +3,10 @@
 This package models Lever data from [Fivetran's Opportunity endpoint connector](https://fivetran.com/docs/applications/lever). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/lever#schemainformation).
 > NOTE: If your Lever connector was created [prior to July 2020](https://fivetran.com/docs/applications/lever/changelog) or still uses the Candidate endpoint, you must fully re-sync your connector or set up a new connector to use Fivetran's Lever dbt packages.
 
-This package helps you understand trends in recruiting, interviewing, and hiring at your company. It also provides recruiting stakeholders with information about individual opportunities, interviews, and jobs. It achieves this by:
-- Enriching the core opportunity, interview, job posting, and requisition tables with relevant pipeline data and metrics
-- Integrating the interview table with reviewer information and feedback
-- Calculating the velocity of opportunities through each pipeline stage, alongside major job- and candidate-related attributes for segmented funnel analysis
+This package enriches your Fivetran data by doing the following:
+- Adds descriptions to tables and columns that are synced using Fivetran
+- Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
+- Models staging tables, which will be used in our transform package
 
 ## Models
 This package contains staging models, designed to work simultaneously with our [Lever modeling package](https://github.com/fivetran/dbt_lever).  The staging models:

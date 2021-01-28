@@ -35,5 +35,9 @@ vars:
     contact_link: "{{ source('lever', 'contact_link') }}"
     resume: "{{ source('lever', 'resume') }}"
 
-models: 
-  materialized: table # for building the package, switch to views later? 
+
+models:
+  lever_source:
+    tmp:
+      materialized: view
+    materialized: table

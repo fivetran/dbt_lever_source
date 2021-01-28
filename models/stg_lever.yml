@@ -1,5 +1,3 @@
-# for source packages/pulling from the raw connector data
-
 version: 2
 
 models:
@@ -402,7 +400,7 @@ models:
       - name: field_index
         description: Numerical index of the field's position in the feedback form. 
       - name: value_index
-        description: Index of the value(s) provided for this field. This is relevant if the field is an array. todo
+        description: Index of the value(s) provided for this field. This is relevant if the field is an array.
       - name: code_language
         description: Programming language if the interview assessed coding. 
       - name: currency 
@@ -448,7 +446,6 @@ models:
       - name: headcount_hired
         description: The number of filled seats / openings on the requisition, or the string, 'unlimited'.
       - name: headcount_infinite
-        description: todo!!! 
       - name: headcount_total_allotted
         description: Total headcount allotted for this requisition.
       - name: hiring_manager_user_id
@@ -469,7 +466,7 @@ models:
         description: The team associated with the requisition
 
   - name: stg_lever__requisition_posting
-    description: Table relating requsitions to positings.
+    description: Table relating requsitions to postings.
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns: 
@@ -514,6 +511,11 @@ models:
       # add requisition_offer, resume, contact_link tests
   - name: stg_lever__requisition_offer
     description: Table relating offers to their associated requisitions.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns: 
+            - offer_id
+            - requisition_id
     columns:
     - name: offer_id
       description: Foriegn key referencing the OFFER for the requisition. 
@@ -524,6 +526,11 @@ models:
   
   - name: stg_lever__contact_link
     description: Table of all links associated with an opportunity contact (ie linkedin, github repos, personal websites).
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns: 
+            - contact_id
+            - link
     columns:
       - name: contact_id
         description: Unique id of the contact associated with one or more opportunities.
@@ -535,6 +542,9 @@ models:
     columns:
       - name: id  
         description: Unique id of the resume file. 
+        tests:
+          - unique
+          - not_null
       - name: created_at
         description: Timestamp of when the resume was created in Lever. 
       - name: file_download_url

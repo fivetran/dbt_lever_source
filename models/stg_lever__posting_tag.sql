@@ -1,3 +1,4 @@
+{{ config(enabled=var('lever_using_posting_tag', True)) }}
 
 with base as (
 

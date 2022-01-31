@@ -36,7 +36,7 @@ final as (
         requisition_code,
         state as current_state,
         text as job_title, 
-        cast(updated_at as {{ dbt_utils.type_timestamp() }}) as updated_at,
+        cast(updated_at as {{ dbt_utils.type_timestamp() }}) as updated_at
     
     from fields
 

@@ -23,7 +23,7 @@ final as (
     
     select 
         _fivetran_synced,
-        created_at,
+        cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
         creator_id as creator_user_id,
         id as offer_id,
         status,

@@ -23,10 +23,10 @@ final as (
     
     select 
         _fivetran_synced,
-        completed_at,
-        created_at,
+        cast(completed_at as {{ dbt_utils.type_timestamp() }}) as completed_at,
+        cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
         creator_id as creator_user_id,
-        deleted_at,
+        cast(deleted_at as {{ dbt_utils.type_timestamp() }}) as deleted_at,
         id as feedback_form_id,
         instructions,
         interview_id,

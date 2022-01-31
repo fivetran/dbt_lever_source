@@ -23,10 +23,10 @@ final as (
     
     select 
         _fivetran_synced,
-        canceled_at,
-        created_at,
+        cast(canceled_at as {{ dbt_utils.type_timestamp() }}) as canceled_at,
+        cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
         creator_id as creator_user_id,
-        date as occurred_at,
+        cast(date as {{ dbt_utils.type_timestamp() }}) as occurred_at,
         duration as duration_minutes,
         feedback_reminder as feedback_reminder_frequency,
         gcal_event_url,

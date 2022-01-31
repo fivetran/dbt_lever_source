@@ -28,17 +28,15 @@ final as (
         categories_level as job_level,
         categories_location as job_location,
         categories_team as job_team,
-
         content_description,
-
-        created_at,
+        cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
         creator_id as creator_user_id,
         id as posting_id, 
         owner_id as owner_user_id,
         requisition_code,
         state as current_state,
         text as job_title, 
-        updated_at
+        cast(updated_at as {{ dbt_utils.type_timestamp() }}) as updated_at,
     
     from fields
 

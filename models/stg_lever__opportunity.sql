@@ -26,7 +26,7 @@ final as (
         archived_at,
         archived_reason_id,
         contact as contact_id,
-        created_at,
+        cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
         data_protection_contact_allowed as is_data_protection_contact_allowed, 
         data_protection_contact_expires_at,
         data_protection_store_allowed as is_data_protection_store_allowed,

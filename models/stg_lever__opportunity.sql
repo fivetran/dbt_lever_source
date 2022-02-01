@@ -23,7 +23,7 @@ final as (
     
     select 
         _fivetran_synced,
-        archived_at,
+        cast(archived_at as {{ dbt_utils.type_timestamp() }}) as archived_at,
         archived_reason_id,
         contact as contact_id,
         cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,

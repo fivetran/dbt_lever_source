@@ -1,4 +1,4 @@
-name: 'lever_source_integration_tests'
+name: 'lever_source_integration_tests_1'
 version: '0.4.0'
 config-version: 2
 profile: 'integration_tests'

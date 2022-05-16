@@ -10,7 +10,7 @@ This package enriches your Fivetran data by doing the following:
 - Models staging tables, which will be used in our transform package
 
 ## Models
-This package contains staging models, designed to work simultaneously with our [Lever modeling package](https://github.com/fivetran/dbt_lever).  The staging models:
+This package contains staging models, designed to work simultaneously with our [Lever transformation package](https://github.com/fivetran/dbt_lever).  The staging models:
 * Remove any rows that are soft-deleted
 * Name columns consistently across all packages:
     * Boolean fields are prefixed with `is_` or `has_`

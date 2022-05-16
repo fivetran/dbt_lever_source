@@ -1,6 +1,11 @@
+
 # dbt_lever_source v0.4.0
 🎉 Applying Package Standardization 🎉
 We are applying standardization updates to be more consistent across our documentation.
+
+# dbt_lever_source v0.3.1
+## Under the Hood
+- Casted all staging model timestamp fields as `dbt_uitls.type_timestamp()` in order for downstream date functions to properly compile across warehouses. ([#11](https://github.com/fivetran/dbt_lever/pull/11))
 
 # dbt_lever_source v0.3.0
 🎉 dbt v1.0.0 Compatibility 🎉

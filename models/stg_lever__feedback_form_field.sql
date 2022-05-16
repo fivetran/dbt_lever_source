@@ -28,8 +28,6 @@ final as (
         feedback_form_id,
         field_index,
         value_index,
-
-        -- should i coalesce these? 
         value_date,
         value_decimal,
         value_file_id,

@@ -24,14 +24,13 @@ final as (
     select 
         _fivetran_synced,
         access_role,
-        created_at,
-        deactivated_at,
-        email,
+        cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
+        cast(deactivated_at as {{ dbt_utils.type_timestamp() }}) as deactivated_at,
+        email, -- username is just taken from the email
         external_directory_id as external_directory_user_id,
         id as user_id,
         name as full_name
 
-    -- username is just taken from the email
     from fields
 
     where not coalesce(_fivetran_deleted, false)

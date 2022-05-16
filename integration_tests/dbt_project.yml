@@ -1,10 +1,11 @@
-name: 'lever_source_integration_tests_1'
+name: 'lever_source_integration_tests'
 version: '0.4.0'
 config-version: 2
 profile: 'integration_tests'
 
 
 vars:
+  lever_schema: lever_source_integration_tests
   lever_source:
     lever_application_identifier: "application"
     lever_archive_reason_identifier: "archive_reason"

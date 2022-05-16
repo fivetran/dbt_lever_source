@@ -23,7 +23,7 @@ final as (
     
     select 
         id, 
-        _fivetran_synced,
+        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced,
         cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
         file_download_url,
         file_ext as file_extension,

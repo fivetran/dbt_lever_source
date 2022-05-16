@@ -22,7 +22,7 @@ fields as (
 final as (
     
     select 
-        _fivetran_synced,
+        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced,
         access_role,
         cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
         cast(deactivated_at as {{ dbt_utils.type_timestamp() }}) as deactivated_at,

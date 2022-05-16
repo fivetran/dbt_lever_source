@@ -17,6 +17,7 @@ sources:
     # do tests on staging models bc of circleci testing
     tables:
       - name: opportunity
+        identifier: "{{ var('lever_opportunity_identifier', 'opportunity')}}"
         description: > 
           Opportunities represent each candidates' individual journeys/candidacies through
           your pipeline. An individual candidate might have multiple opportunties if
@@ -79,6 +80,7 @@ sources:
             description: Timestamp of when the opportunity was last updated in lever.
 
       - name: posting
+        identifier: "{{ var('lever_posting_identifier', 'posting')}}"
         description: Table capturing job postings that candidates can apply to.
         columns:
           - name: id
@@ -126,6 +128,7 @@ sources:
             description: Timestamp of when the posting was last updated.
 
       - name: posting_tag
+        identifier: "{{ var('lever_posting_tag_identifier', 'posting_tag')}}"
         description: Table associating job postings with all associated tags.
         columns:
           - name: posting_id
@@ -136,6 +139,7 @@ sources:
             description: Boolean that is true if the posting-tag association has been deleted.
             
       - name: posting_interview
+        identifier: "{{ var('lever_posting_interview_identifier', 'posting_interview')}}"
         description: Table relating job postings to any interviews undertaken for the role.
         columns:
           - name: interview_id
@@ -144,6 +148,7 @@ sources:
             description: Foreign key referencing the POSTING that was interviewed for.
 
       - name: user
+        identifier: "{{ var('lever_user_identifier', 'user')}}"
         description: Table of Lever users (anyone who has been invited to join the recruiting efforts).
         columns:
           - name: id
@@ -171,6 +176,7 @@ sources:
             description: Username, extracted from user's email address.
 
       - name: interviewer_user
+        identifier: "{{ var('lever_interviewer_user_identifier', 'interviewer_user')}}"
         description: Table relating interviews to their interviewers.
         columns:
           - name: interview_id
@@ -179,6 +185,7 @@ sources:
             description: Foreign key referencing the USER that interviewed the candidate.
 
       - name: opportunity_stage_history
+        identifier: "{{ var('lever_opportunity_stage_history_identifier', 'opportunity_stage_history')}}"
         description: Table capturing the different stages that each opportunity has passed through in the pipeline.
         columns:
           - name: opportunity_id
@@ -193,6 +200,7 @@ sources:
             description: The index of the stage in the pipeline at the time the stage change occurred. 
 
       - name: stage
+        identifier: "{{ var('lever_stage_identifier', 'stage')}}"
         description: Table of steps in the recruiting workflow of your hiring pipeline.
         columns:
           - name: id
@@ -201,6 +209,7 @@ sources:
             description: Title of the stage.
 
       - name: opportunity_source
+        identifier: "{{ var('lever_opportunity_source_identifier', 'opportunity_source')}}"
         description: Table relating opportunities to all of their individual sources. 
         columns:
           - name: opportunity_id
@@ -209,6 +218,7 @@ sources:
             description: Where this opportunity was sourced from (ie 'linkedin').
 
       - name: opportunity_tag 
+        identifier: "{{ var('lever_opportunity_tag_identifier', 'opportunity_tag ')}}"
         description: Table relating opportunities to their tags.
         columns:
           - name: opportunity_id
@@ -217,6 +227,7 @@ sources:
             description: Text of the tag associated with this opportunity.
 
       - name: application
+        identifier: "{{ var('lever_application_identifier', 'application')}}"
         description: Table capturing candidate applications to job postings. 
         columns:
           - name: id
@@ -256,6 +267,7 @@ sources:
             description: Foreign key referencing the id of the OPPORTUNITY associated with this application.
 
       - name: offer
+        identifier: "{{ var('lever_offer_identifier', 'offer')}}"
         description: Table of the data sent to an opportunity for a position they have been offerred.
         columns:
           - name: id
@@ -279,6 +291,7 @@ sources:
               signed - the candidate signed the offer
 
       - name: archive_reason 
+        identifier: "{{ var('lever_archive_reason_identifier', 'archive_reason ')}}"
         description: >
           Table of reasons for archiving candidates, exiting them from the hiring pipeline (after hiring or rejecting 
           for a particular reason).
@@ -291,6 +304,7 @@ sources:
             description: Boolean that is true if the archive reason has been soft-deleted.
 
       - name: interview
+        identifier: "{{ var('lever_interview_identifier', 'interview')}}"
         description: Table capturing individual interviews (which comprise panels).
         columns:
           - name: id
@@ -331,6 +345,7 @@ sources:
             description: Foreign key referencing the OPPORTUNITY being interviewed for. 
 
       - name: interview_feedback
+        identifier: "{{ var('lever_interview_feedback_identifier', 'interview_feedback')}}"
         description: Table associating interviews with their feedback forms. 
         columns:
           - name: feedback_form_id
@@ -339,6 +354,7 @@ sources:
             description: Foreign key referencing the INTERVIEW that was given feedback for.
 
       - name: feedback_form
+        identifier: "{{ var('lever_feedback_form_identifier', 'feedback_form')}}"
         description: >
           Table capturing feedback forms that have been completed after interviewing a candidate. 
         columns:
@@ -368,6 +384,7 @@ sources:
             description: Foreign key referencing the OPPORTUNITY that the candidate was interviewed for.
 
       - name: feedback_form_field
+        identifier: "{{ var('lever_feedback_form_field_identifier', 'feedback_form_field')}}"
         description: Table capturing the values provided for individual fields within interview feedback forms.
         columns:
           - name: feedback_form_id
@@ -392,6 +409,7 @@ sources:
             description: If the field is a text field, this is the content of the value. 
 
       - name: requisition
+        identifier: "{{ var('lever_requisition_identifier', 'requisition')}}"
         description: Table capturing requisitions made in/pushed to lever.
         columns:
         # requistion can have custom fields 
@@ -441,6 +459,7 @@ sources:
             description: The team associated with the requisition
 
       - name: requisition_posting
+        identifier: "{{ var('lever_requisition_posting_identifier', 'requisition_posting')}}"
         description: Table relating requsitions to positings.
         columns:
           - name: posting_id
@@ -451,6 +470,7 @@ sources:
             description: Boolean that is true if the requisition-posting relationship has been soft-deleted.
       
       - name: contact_email
+        identifier: "{{ var('lever_contact_email_identifier', 'contact_email')}}"
         description: Table capturing the emails associated with a contact. 
         columns:
           - name: contact_id
@@ -459,6 +479,7 @@ sources:
             description: Contact's email address.
 
       - name: contact_phone 
+        identifier: "{{ var('lever_contact_phone_identifier', 'contact_phone')}}"
         description: Table capturing the phone numbers associated with a contact. 
         columns:
           - name: contact_id
@@ -471,6 +492,7 @@ sources:
             description: The contact's provided phone number.
       
       - name: requisition_offer
+        identifier: "{{ var('lever_requisition_offer_identifier', 'requisition_offer')}}"
         description: Table relating offers to their associated requisitions.
         columns:
           - name: offer_id
@@ -481,6 +503,7 @@ sources:
             description: Boolean that is true if the offer-requisition relationship has been soft-deleted.
 
       - name: contact_link
+        identifier: "{{ var('lever_contact_link_identifier', 'contact_link')}}"
         description: Table of all links associated with an opportunity contact (ie linkedin, github repos, personal websites).
         columns:
           - name: contact_id
@@ -489,6 +512,7 @@ sources:
             description: Url of the individual link.
           
       - name: resume
+        identifier: "{{ var('lever_resume_identifier', 'resume')}}"
         description: Table capturing resumes submitted by opportunities.
         columns:
           - name: id  

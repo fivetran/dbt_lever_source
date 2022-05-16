@@ -27,7 +27,7 @@ final as (
         archived_reason_id,
         comments,
         company,
-        created_at,
+        cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
         id as application_id,
         opportunity_id,
         posting_hiring_manager_id as posting_hiring_manager_user_id,

@@ -40,7 +40,7 @@ final as (
         name as contact_name,
         origin,
         owner_id as owner_user_id,
-        cast(snoozed_until as {{ dbt_utils.type_timestamp() }}) as snoozed_until_at,
+        snoozed_until,
         stage_id,
         cast(updated_at as {{ dbt_utils.type_timestamp() }}) as updated_at
 

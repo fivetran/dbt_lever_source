@@ -23,7 +23,7 @@ fields as (
 final as (
     
     select 
-        _fivetran_synced,
+        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced,
         backfill as is_backfill,
         compensation_band_currency,
         compensation_band_interval,

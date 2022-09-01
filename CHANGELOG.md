@@ -1,6 +1,13 @@
+
+# dbt_lever_source v0.4.0
+## 🎉 Documentation and Feature Updates
+- Updated README documentation updates for easier navigation and setup of the dbt package
+- Included `lever_[source_table_name]_identifier` variable for additional flexibility within the package when source tables are named differently.
+
 # dbt_lever_source v0.3.1
 ## Under the Hood
 - Casted all staging model timestamp fields as `dbt_uitls.type_timestamp()` in order for downstream date functions to properly compile across warehouses. ([#11](https://github.com/fivetran/dbt_lever/pull/11))
+
 # dbt_lever_source v0.3.0
 🎉 dbt v1.0.0 Compatibility 🎉
 ## 🚨 Breaking Changes 🚨

@@ -25,7 +25,7 @@ final as (
     select 
         posting_id,
         requisition_id,
-        _fivetran_synced
+        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced
         
     from fields
 

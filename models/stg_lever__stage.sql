@@ -24,7 +24,7 @@ final as (
     select 
         id as stage_id,
         text as stage_name,
-        _fivetran_synced
+        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced
     from fields
 
     where not coalesce(_fivetran_deleted, false)

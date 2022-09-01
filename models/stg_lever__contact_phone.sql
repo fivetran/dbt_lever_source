@@ -26,7 +26,7 @@ final as (
         index,
         type as phone_type,
         value as phone_number,
-        _fivetran_synced
+        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced
 
     from fields
 )

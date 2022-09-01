@@ -22,7 +22,7 @@ fields as (
 final as (
     
     select 
-        _fivetran_synced,
+        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced,
         cast(completed_at as {{ dbt_utils.type_timestamp() }}) as completed_at,
         cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
         creator_id as creator_user_id,

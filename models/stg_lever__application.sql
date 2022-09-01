@@ -22,8 +22,8 @@ fields as (
 final as (
     
     select 
-        _fivetran_synced,
-        archived_at,
+        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced,
+        cast(archived_at as {{ dbt_utils.type_timestamp() }}) as archived_at,
         archived_reason_id,
         comments,
         company,

@@ -22,7 +22,7 @@ fields as (
 final as (
     
     select 
-        _fivetran_synced,
+        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced,
         categories_commitment as job_commitment,
         categories_department as job_department,
         categories_level as job_level,

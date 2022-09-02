@@ -21,7 +21,11 @@ fields as (
 
 final as (
     
-    select *
+    select 
+        interview_id, 
+        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced,
+        feedback_form_id
+
     from fields
 )
 

@@ -19,8 +19,12 @@ fields as (
 ),
 
 final as (
-    
-    select *
+
+    select 
+        contact_id,
+        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced,
+        email
+        
     from fields
 )
 

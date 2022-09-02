@@ -218,7 +218,7 @@ sources:
             description: Where this opportunity was sourced from (ie 'linkedin').
 
       - name: opportunity_tag 
-        identifier: "{{ var('lever_opportunity_tag_identifier', 'opportunity_tag ')}}"
+        identifier: "{{ var('lever_opportunity_tag_identifier', 'opportunity_tag')}}"
         description: Table relating opportunities to their tags.
         columns:
           - name: opportunity_id
@@ -291,7 +291,7 @@ sources:
               signed - the candidate signed the offer
 
       - name: archive_reason 
-        identifier: "{{ var('lever_archive_reason_identifier', 'archive_reason ')}}"
+        identifier: "{{ var('lever_archive_reason_identifier', 'archive_reason')}}"
         description: >
           Table of reasons for archiving candidates, exiting them from the hiring pipeline (after hiring or rejecting 
           for a particular reason).

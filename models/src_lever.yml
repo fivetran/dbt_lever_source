@@ -268,7 +268,7 @@ sources:
 
       - name: offer
         identifier: "{{ var('lever_offer_identifier', 'offer')}}"
-        description: Table of the data sent to an opportunity for a position they have been offerred.
+        description: Table of the data sent to an opportunity for a position they have been offered.
         columns:
           - name: id
             description: Unique ID of the offer.

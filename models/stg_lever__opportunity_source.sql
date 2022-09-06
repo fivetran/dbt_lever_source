@@ -21,8 +21,12 @@ fields as (
 
 final as (
     
-    select *
+    select 
+        opportunity_id, 
+        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced,
+        source
     from fields
 )
 
-select * from final
+select * 
+from final

@@ -26,10 +26,10 @@ final as (
         posting_id,
         requisition_id,
         cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced
-        
     from fields
 
     where not coalesce(_fivetran_deleted, false)
 )
 
-select * from final
+select * 
+from final

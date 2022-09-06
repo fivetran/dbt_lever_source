@@ -38,8 +38,8 @@ final as (
         stage_id as opportunity_stage_id,
         subject,
         timezone
-        
     from fields
 )
 
-select * from final
+select * 
+from final

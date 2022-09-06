@@ -22,8 +22,13 @@ fields as (
 
 final as (
     
-    select *
+    select
+        requisition_id,
+        offer_id,
+        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced,
+        _fivetran_deleted
     from fields
 )
 
-select * from final
+select * 
+from final

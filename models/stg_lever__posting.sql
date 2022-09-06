@@ -37,10 +37,10 @@ final as (
         state as current_state,
         text as job_title, 
         cast(updated_at as {{ dbt_utils.type_timestamp() }}) as updated_at
-    
     from fields
 
     where not coalesce(_fivetran_deleted, false)
 )
 
-select * from final
+select * 
+from final

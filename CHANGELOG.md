@@ -1,4 +1,6 @@
-
+# dbt_lever_source v0.4.1
+## Under the Hood
+- Added column names in final staging model CTEs to follow best practices for model development.
 # dbt_lever_source v0.4.0
 ## 🎉 Documentation and Feature Updates
 - Updated README documentation updates for easier navigation and setup of the dbt package

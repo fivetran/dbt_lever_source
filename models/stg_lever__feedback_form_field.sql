@@ -33,8 +33,8 @@ final as (
         value_file_id,
         value_number,
         value_text
-    
     from fields
 )
 
-select * from final
+select * 
+from final

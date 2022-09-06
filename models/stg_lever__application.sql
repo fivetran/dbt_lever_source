@@ -22,13 +22,13 @@ fields as (
 final as (
     
     select 
+        id as application_id,
         cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced,
         cast(archived_at as {{ dbt_utils.type_timestamp() }}) as archived_at,
         archived_reason_id,
         comments,
         company,
         cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
-        id as application_id,
         opportunity_id,
         posting_hiring_manager_id as posting_hiring_manager_user_id,
         posting_id,
@@ -36,8 +36,8 @@ final as (
         referrer_id as referrer_user_id,
         requisition_for_hire_id as requisition_id,
         type
-
     from fields
 )
 
-select * from final
+select * 
+from final

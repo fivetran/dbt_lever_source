@@ -43,8 +43,8 @@ final as (
         snoozed_until,
         stage_id,
         cast(updated_at as {{ dbt_utils.type_timestamp() }}) as updated_at
-
     from fields
 )
 
-select * from final
+select * 
+from final

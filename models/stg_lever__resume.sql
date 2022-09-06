@@ -30,8 +30,8 @@ final as (
         file_name,
         cast(file_uploaded_at as {{ dbt_utils.type_timestamp() }}) as file_uploaded_at,
         opportunity_id
-
     from fields
 )
 
-select * from final
+select *
+from final

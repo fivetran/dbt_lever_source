@@ -47,4 +47,5 @@ final as (
     from fields
 )
 
-select * from final
+select * 
+from final

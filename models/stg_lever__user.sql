@@ -36,4 +36,5 @@ final as (
     where not coalesce(_fivetran_deleted, false)
 )
 
-select * from final
+select * 
+from final

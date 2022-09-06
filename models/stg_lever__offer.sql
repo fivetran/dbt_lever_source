@@ -28,7 +28,6 @@ final as (
         id as offer_id,
         status,
         candidate_id as opportunity_id -- todo surface this issue
-        
     from fields
 )
 

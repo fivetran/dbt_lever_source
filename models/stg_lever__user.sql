@@ -30,7 +30,6 @@ final as (
         external_directory_id as external_directory_user_id,
         id as user_id,
         name as full_name
-
     from fields
 
     where not coalesce(_fivetran_deleted, false)

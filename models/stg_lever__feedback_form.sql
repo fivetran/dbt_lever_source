@@ -35,7 +35,6 @@ final as (
         template_id as template_field_id,
         text as form_title,
         type -- always = interview
-
     from fields
 )
 

@@ -36,7 +36,6 @@ final as (
         referrer_id as referrer_user_id,
         requisition_for_hire_id as requisition_id,
         type
-
     from fields
 )
 

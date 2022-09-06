@@ -25,7 +25,6 @@ final as (
         interview_id,
         user_id,
         cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced
-        
     from fields
 )
 

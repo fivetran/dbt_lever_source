@@ -24,7 +24,6 @@ final as (
         id as archive_reason_id,
         text as archive_reason_title,
         cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced
-
     from fields
 
     where not coalesce(_fivetran_deleted, false)

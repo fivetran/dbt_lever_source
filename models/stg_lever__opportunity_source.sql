@@ -25,7 +25,6 @@ final as (
         opportunity_id, 
         cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced,
         source
-        
     from fields
 )
 

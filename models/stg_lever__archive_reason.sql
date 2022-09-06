@@ -3,7 +3,6 @@ with base as (
 
     select * 
     from {{ ref('stg_lever__archive_reason_tmp') }}
-
 ),
 
 fields as (
@@ -31,4 +30,5 @@ final as (
     where not coalesce(_fivetran_deleted, false)
 )
 
-select * from final
+select *
+from final

@@ -22,21 +22,21 @@ fields as (
 final as (
     
     select 
-        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced,
+        cast(_fivetran_synced as {{ dbt.type_timestamp() }}) as _fivetran_synced,
         categories_commitment as job_commitment,
         categories_department as job_department,
         categories_level as job_level,
         categories_location as job_location,
         categories_team as job_team,
         content_description,
-        cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
+        cast(created_at as {{ dbt.type_timestamp() }}) as created_at,
         creator_id as creator_user_id,
         id as posting_id, 
         owner_id as owner_user_id,
         requisition_code,
         state as current_state,
         text as job_title, 
-        cast(updated_at as {{ dbt_utils.type_timestamp() }}) as updated_at
+        cast(updated_at as {{ dbt.type_timestamp() }}) as updated_at
     from fields
 
     where not coalesce(_fivetran_deleted, false)

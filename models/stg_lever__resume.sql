@@ -23,12 +23,12 @@ final as (
     
     select 
         id, 
-        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced,
-        cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
+        cast(_fivetran_synced as {{ dbt.type_timestamp() }}) as _fivetran_synced,
+        cast(created_at as {{ dbt.type_timestamp() }}) as created_at,
         file_download_url,
         file_ext as file_extension,
         file_name,
-        cast(file_uploaded_at as {{ dbt_utils.type_timestamp() }}) as file_uploaded_at,
+        cast(file_uploaded_at as {{ dbt.type_timestamp() }}) as file_uploaded_at,
         opportunity_id
     from fields
 )

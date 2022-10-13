@@ -28,7 +28,7 @@ final as (
         "tag"
         {% else %} tag {% endif %}
         as tag_name,
-        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced
+        cast(_fivetran_synced as {{ dbt.type_timestamp() }}) as _fivetran_synced
 
     from fields
 

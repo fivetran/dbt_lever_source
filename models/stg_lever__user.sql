@@ -22,10 +22,10 @@ fields as (
 final as (
     
     select 
-        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced,
+        cast(_fivetran_synced as {{ dbt.type_timestamp() }}) as _fivetran_synced,
         access_role,
-        cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
-        cast(deactivated_at as {{ dbt_utils.type_timestamp() }}) as deactivated_at,
+        cast(created_at as {{ dbt.type_timestamp() }}) as created_at,
+        cast(deactivated_at as {{ dbt.type_timestamp() }}) as deactivated_at,
         email, -- username is just taken from the email
         external_directory_id as external_directory_user_id,
         id as user_id,

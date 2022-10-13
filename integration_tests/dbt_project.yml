@@ -1,9 +1,7 @@
 name: 'lever_source_integration_tests'
-version: '0.4.1'
+version: '0.5.0'
 config-version: 2
 profile: 'integration_tests'
-
-
 vars:
   lever_schema: lever_source_integration_tests
   lever_source:
@@ -31,7 +29,6 @@ vars:
     lever_contact_phone_identifier: "contact_phone"
     lever_contact_link_identifier: "contact_link"
     lever_resume_identifier: "resume"
-
 seeds:
   lever_source_integration_tests:
     +column_types:
@@ -63,13 +60,13 @@ seeds:
     opportunity:
       +column_types:
         archived_at: timestamp
-        created_at: timestamp 
+        created_at: timestamp
         data_protection_contact_expires_at: timestamp
         data_protection_store_expires_at: timestamp
         last_advanced_at: timestamp
         last_interaction_at: timestamp
         snoozed_until: timestamp
-        updated_at: timestamp 
+        updated_at: timestamp
     opportunity_stage_history:
       +column_types:
         updated_at: timestamp

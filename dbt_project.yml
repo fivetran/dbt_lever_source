@@ -1,14 +1,11 @@
 name: 'lever_source'
-version: '0.4.1'
+version: '0.5.0'
 config-version: 2
-require-dbt-version: [">=1.0.0", "<2.0.0"]
-
-
+require-dbt-version: [">=1.2.0", "<2.0.0"]
 vars:
 
-  lever_using_posting_tag: true  # Disable if you do not have the postings tag table, or if you do not want posting tag-related data reported
-  lever_using_requisitions: true # Disable if you do not have the requisition table, or if you do not want requisition related metrics reported
-
+  lever_using_posting_tag: true
+  lever_using_requisitions: true
   lever_source:
     application: "{{ source('lever', 'application') }}"
     archive_reason: "{{ source('lever', 'archive_reason') }}"
@@ -37,8 +34,6 @@ vars:
     contact_phone: "{{ source('lever', 'contact_phone') }}"
     contact_link: "{{ source('lever', 'contact_link') }}"
     resume: "{{ source('lever', 'resume') }}"
-
-
 models:
   lever_source:
     tmp:

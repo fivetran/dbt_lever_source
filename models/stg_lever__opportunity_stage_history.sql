@@ -25,9 +25,9 @@ final as (
         opportunity_id,
         stage_id,
         to_stage_index,
-        cast(updated_at as {{ dbt_utils.type_timestamp() }}) as updated_at,
+        cast(updated_at as {{ dbt.type_timestamp() }}) as updated_at,
         updater_id as updater_user_id,
-        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced
+        cast(_fivetran_synced as {{ dbt.type_timestamp() }}) as _fivetran_synced
     from fields
 )
 

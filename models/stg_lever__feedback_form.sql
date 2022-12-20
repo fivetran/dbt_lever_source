@@ -22,11 +22,11 @@ fields as (
 final as (
     
     select 
-        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced,
-        cast(completed_at as {{ dbt_utils.type_timestamp() }}) as completed_at,
-        cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
+        cast(_fivetran_synced as {{ dbt.type_timestamp() }}) as _fivetran_synced,
+        cast(completed_at as {{ dbt.type_timestamp() }}) as completed_at,
+        cast(created_at as {{ dbt.type_timestamp() }}) as created_at,
         creator_id as creator_user_id,
-        cast(deleted_at as {{ dbt_utils.type_timestamp() }}) as deleted_at,
+        cast(deleted_at as {{ dbt.type_timestamp() }}) as deleted_at,
         id as feedback_form_id,
         instructions,
         interview_id,

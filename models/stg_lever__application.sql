@@ -23,12 +23,12 @@ final as (
     
     select 
         id as application_id,
-        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced,
-        cast(archived_at as {{ dbt_utils.type_timestamp() }}) as archived_at,
+        cast(_fivetran_synced as {{ dbt.type_timestamp() }}) as _fivetran_synced,
+        cast(archived_at as {{ dbt.type_timestamp() }}) as archived_at,
         archived_reason_id,
         comments,
         company,
-        cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
+        cast(created_at as {{ dbt.type_timestamp() }}) as created_at,
         opportunity_id,
         posting_hiring_manager_id as posting_hiring_manager_user_id,
         posting_id,

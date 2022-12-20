@@ -25,7 +25,7 @@ final as (
     select
         requisition_id,
         offer_id,
-        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced,
+        cast(_fivetran_synced as {{ dbt.type_timestamp() }}) as _fivetran_synced,
         _fivetran_deleted
     from fields
 )

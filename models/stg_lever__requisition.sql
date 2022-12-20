@@ -23,13 +23,13 @@ fields as (
 final as (
     
     select 
-        cast(_fivetran_synced as {{ dbt_utils.type_timestamp() }}) as _fivetran_synced,
+        cast(_fivetran_synced as {{ dbt.type_timestamp() }}) as _fivetran_synced,
         backfill as is_backfill,
         compensation_band_currency,
         compensation_band_interval,
         compensation_band_max,
         compensation_band_min,
-        cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
+        cast(created_at as {{ dbt.type_timestamp() }}) as created_at,
         creator_id as creator_user_id,
         employment_status,
         headcount_hired,

@@ -1,5 +1,5 @@
 name: 'lever_source_integration_tests'
-version: '0.5.0'
+version: 0.6.0
 config-version: 2
 profile: 'integration_tests'
 vars:
@@ -99,3 +99,7 @@ seeds:
         file_ext: "{{ 'string' if target.name == 'bigquery' else 'varchar' }}"
         created_at: timestamp
         file_uploaded_at: timestamp
+
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ['spark_utils', 'dbt_utils']

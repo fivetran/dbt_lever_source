@@ -43,7 +43,6 @@ steps:
     commands: |
       bash .buildkite/scripts/run_models.sh redshift
 
-
   - label: ":postgres: Run Tests - Postgres"
     key: "run-dbt-postgres"
     plugins:

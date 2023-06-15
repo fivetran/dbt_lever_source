@@ -1,6 +1,6 @@
 # dbt_lever_source v0.6.0
 ## 🎉 Feature Update 🎉
-- Databricks compatibility! ([#21](https://github.com/fivetran/dbt_lever_source/pull/21))
+- Postgres and Databricks compatibility! ([#21](https://github.com/fivetran/dbt_lever_source/pull/21))
 
 ## 🚘 Under the Hood 🚘
 - Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job. ([#19](https://github.com/fivetran/dbt_lever_source/pull/19))

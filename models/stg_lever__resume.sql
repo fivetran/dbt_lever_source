@@ -19,17 +19,31 @@ fields as (
     from base
 ),
 
+{# Figure out if the fields are Epoch or datetime timestamps #}
+{%- set columns = adapter.get_columns_in_relation(ref('stg_lever__resume_tmp')) -%}
+{%- set timestamp_fields = [] -%}
+{%- for column in columns -%}
+    {%- if column.name|lower in ['created_at', 'created_at_epoch'] -%}
+        {%- do timestamp_fields.append({"name": column.name|lower, "is_epoch": column.is_integer()}) -%}
+    {%- endif -%}
+{%- endfor -%}
+
 final as (
     
     select 
         id, 
         cast(_fivetran_synced as {{ dbt.type_timestamp() }}) as _fivetran_synced,
-        cast(created_at as {{ dbt.type_timestamp() }}) as created_at,
+
+        {%- for timestamp in timestamp_fields %}
+            cast( {{ dbt_date.from_unixtimestamp(timestamp.name, "milliseconds") if timestamp.is_epoch else timestamp.name }} as {{ dbt.type_timestamp() }}) as {{ timestamp.name }},
+        {%- endfor %}
+
         file_download_url,
         file_ext as file_extension,
         file_name,
-        cast(file_uploaded_at as {{ dbt.type_timestamp() }}) as file_uploaded_at,
+        cast(file_uploaded_at as {{ dbt.type_timestamp() }}) as file_uploaded_at, -- would need to do the same for file_uploaded_at
         opportunity_id
+
     from fields
 )
 

@@ -88,15 +88,15 @@ seeds:
     contact_phone:
       +column_types:
         index: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
-        value: "{{ 'string' if target.name in ('bigquery', 'spark', 'databricks') else 'varchar' }}"
+        value: "{{ 'string' if target.type in ('bigquery', 'spark', 'databricks') else 'varchar' }}"
     contact_link:
       +column_types:
-        contact_id: "{{ 'string' if target.name in ('bigquery', 'spark', 'databricks') else 'varchar' }}"
-        link: "{{ 'string' if target.name in ('bigquery', 'spark', 'databricks') else 'varchar' }}"
+        contact_id: "{{ 'string' if target.type in ('bigquery', 'spark', 'databricks') else 'varchar' }}"
+        link: "{{ 'string' if target.type in ('bigquery', 'spark', 'databricks') else 'varchar' }}"
     resume:
       +column_types:
-        id: "{{ 'string' if target.name in ('bigquery', 'spark', 'databricks') else 'varchar' }}"
-        file_ext: "{{ 'string' if target.name in ('bigquery', 'spark', 'databricks') else 'varchar' }}"
+        id: "{{ 'string' if target.type in ('bigquery', 'spark', 'databricks') else 'varchar' }}"
+        file_ext: "{{ 'string' if target.type in ('bigquery', 'spark', 'databricks') else 'varchar' }}"
         created_at: timestamp
         file_uploaded_at: timestamp
 

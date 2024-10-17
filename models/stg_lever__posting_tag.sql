@@ -1,3 +1,5 @@
+ADD source_relation WHERE NEEDED + CHECK JOINS AND WINDOW FUNCTIONS! (Delete this line when done.)
+
 {{ config(enabled=var('lever_using_posting_tag', True)) }}
 
 with base as (
@@ -17,12 +19,19 @@ fields as (
             )
         }}
         
+    
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='lever_union_schemas', 
+            union_database_variable='lever_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
-    
-    select 
+
+    select
+        source_relation, 
         posting_id,
         {% if target.type == 'redshift' %}
         "tag"

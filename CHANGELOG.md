@@ -1,3 +1,13 @@
+# dbt_lever_source v0.7.0
+[PR #26](https://github.com/fivetran/dbt_lever_source/pull/26) includes the following updates:
+## Feature update: Unioning Capability
+- Adds the ability to union source data from multiple lever connectors. Refer to the [README](https://github.com/fivetran/dbt_lever_source/blob/main/README.md) for more details.
+
+## Under the hood
+- Updated tmp models to union source data using the `fivetran_utils.union_data` macro. 
+- To distinguish which source each field comes from, added `source_relation` column in each staging model and applied the `fivetran_utils.source_relation` macro.
+- Updated tests to account for the new `source_relation` column.
+
 # dbt_lever_source v0.6.0
 ## 🎉 Feature Update 🎉
 - PostgreSQL and Databricks compatibility! ([#21](https://github.com/fivetran/dbt_lever_source/pull/21))

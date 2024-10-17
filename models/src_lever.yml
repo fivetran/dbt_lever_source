@@ -3,7 +3,7 @@
 version: 2
 
 sources:
-  - name: lever 
+  - name: lever # This source will only be used if you are using a single lever source connector. If multiple sources are being unioned, their tables will be directly referenced via adapter.get_relation. 
     database: "{% if target.type != 'spark' %}{{ var('lever_database', target.database)}}{% endif %}"
     schema: "{{ var ('lever_schema', 'lever') }}"
 

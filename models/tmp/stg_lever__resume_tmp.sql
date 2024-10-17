@@ -1,1 +1,14 @@
-select * from {{ var('resume') }}
+ADD source_relation WHERE NEEDED + CHECK JOINS AND WINDOW FUNCTIONS! (Delete this line when done.)
+
+{{
+    fivetran_utils.union_data(
+        table_identifier='resume', 
+        database_variable='lever_database', 
+        schema_variable='lever_schema', 
+        default_database=target.database,
+        default_schema='lever',
+        default_variable='resume',
+        union_schema_variable='lever_union_schemas',
+        union_database_variable='lever_union_databases'
+    )
+}}

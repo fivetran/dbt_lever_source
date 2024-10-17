@@ -1,3 +1,16 @@
+ADD source_relation WHERE NEEDED + CHECK JOINS AND WINDOW FUNCTIONS! (Delete this line when done.)
+
 {{ config(enabled=var('lever_using_requisitions', True)) }}
 
-select * from {{ var('requisition_offer') }}
+{{
+    fivetran_utils.union_data(
+        table_identifier='requisition_offer', 
+        database_variable='lever_database', 
+        schema_variable='lever_schema', 
+        default_database=target.database,
+        default_schema='lever',
+        default_variable='requisition_offer',
+        union_schema_variable='lever_union_schemas',
+        union_database_variable='lever_union_databases'
+    )
+}}

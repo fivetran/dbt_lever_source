@@ -1,3 +1,5 @@
+ADD source_relation WHERE NEEDED + CHECK JOINS AND WINDOW FUNCTIONS! (Delete this line when done.)
+
 {{ config(enabled=var('lever_using_requisitions', True)) }}
 
 with base as (
@@ -17,12 +19,19 @@ fields as (
             )
         }}
         
+    
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='lever_union_schemas', 
+            union_database_variable='lever_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
-    
+
     select
+        source_relation,
         requisition_id,
         offer_id,
         cast(_fivetran_synced as {{ dbt.type_timestamp() }}) as _fivetran_synced,

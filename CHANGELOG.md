@@ -6,7 +6,10 @@
   - To continue using the `USER` and/or `INTERVIEWER_USER` tables, set the variables `lever__using_users` and/or `lever__using_interview_user` to false in your `dbt_project.yml`.
   - For more information, refer to the [July 2024 connector release notes](https://fivetran.com/docs/connectors/applications/lever/changelog#july2024) and the related [README section](https://github.com/fivetran/dbt_lever_source/blob/main/README.md##leveraging-legacy-connector-table-names).
 
-- Introduced the ability to union source data from multiple Lever connectors. For more details, see the related [README section](https://github.com/fivetran/dbt_lever_source/blob/main/README.md).
+- Introduced the ability to union source data from multiple Lever connectors. For more details, see the related [README section](https://github.com/fivetran/dbt_lever_source/blob/main/README.md#union-multiple-connectors).
+
+## Bug fixes
+- Fixed an issue where the dbt package would error due to a missing `CONTACT_LINK` source table for users without source data, even though it was enabled in the Fivetran Connector. A null-filled table will now be generated in such cases.
 
 ## Under the hood
 - Updated temporary models to union source data using the `fivetran_utils.union_data` macro.

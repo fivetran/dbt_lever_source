@@ -1,7 +1,5 @@
-ADD source_relation WHERE NEEDED + CHECK JOINS AND WINDOW FUNCTIONS! (Delete this line when done.)
 
 {{ config(enabled=var('lever_using_posting_tag', True)) }}
-
 
 {{
     fivetran_utils.union_data(

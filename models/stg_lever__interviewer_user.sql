@@ -1,6 +1,3 @@
-ADD source_relation WHERE NEEDED + CHECK JOINS AND WINDOW FUNCTIONS! (Delete this line when done.)
-
-
 with base as (
 
     select * 
@@ -17,8 +14,7 @@ fields as (
                 staging_columns=get_interviewer_user_columns()
             )
         }}
-        
-    
+
         {{ fivetran_utils.source_relation(
             union_schema_variable='lever_union_schemas', 
             union_database_variable='lever_union_databases') 

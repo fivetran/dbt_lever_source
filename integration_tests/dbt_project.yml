@@ -83,6 +83,10 @@ seeds:
       +column_types:
         created_at: timestamp
         deactivated_at: timestamp
+    users:
+      +column_types:
+        created_at: timestamp
+        deactivated_at: timestamp
     opportunity_tag:
       +quote_columns: "{{ true if target.type == 'redshift' else false }}"
     contact_phone:

@@ -9,7 +9,7 @@
 - Introduced the ability to union source data from multiple Lever connectors. For more details, see the related [README section](https://github.com/fivetran/dbt_lever_source/blob/main/README.md#union-multiple-connectors).
 
 ## Bug fixes
-- Fixed an issue where the dbt package would error due to a missing `CONTACT_LINK` source table for users without source data, even though it was enabled in the Fivetran Connector. A null-filled table will now be generated in such cases.
+- Fixed an issue where the dbt package would error due to a missing `CONTACT_LINK` source table for users without the titular source data, even if it was enabled in the Fivetran Connector. A null-filled table will now be generated in such cases.
 
 ## Under the hood
 - Updated temporary models to union source data using the `fivetran_utils.union_data` macro.

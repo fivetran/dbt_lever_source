@@ -1,5 +1,7 @@
 
-{{ config(enabled=var('lever_using_requisitions', True)) }}with base as (
+{{ config(enabled=var('lever_using_requisitions', True)) }}
+
+with base as (
 
     select * 
     from {{ ref('stg_lever__requisition_offer_tmp') }}

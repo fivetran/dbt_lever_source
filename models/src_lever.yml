@@ -150,6 +150,7 @@ sources:
       - name: users # applies to connectors created on or after 2024-07-27
         identifier: "{{ var('lever_users_identifier', 'users')}}"
         description: Table of Lever users (anyone who has been invited to join the recruiting efforts).
+        freshness: null
         columns:
           - name: id
             description: Unique id of the user. 
@@ -178,6 +179,7 @@ sources:
       - name: user # applies to connectors created before 2024-07-27
         identifier: "{{ var('lever_user_identifier', 'user')}}"
         description: Table of Lever users (anyone who has been invited to join the recruiting efforts).
+        freshness: null
         columns:
           - name: id
             description: Unique id of the user. 
@@ -206,6 +208,7 @@ sources:
       - name: interview_user # applies to connectors created on or after 2024-07-27
         identifier: "{{ var('lever_interview_user_identifier', 'interview_user')}}"
         description: Table relating interviews to their interviewers.
+        freshness: null
         columns:
           - name: interview_id
             description: Foreign key referencing the INTERVIEW that was given.
@@ -215,6 +218,7 @@ sources:
       - name: interviewer_user # applies to connectors created before 2024-07-27
         identifier: "{{ var('lever_interviewer_user_identifier', 'interviewer_user')}}"
         description: Table relating interviews to their interviewers.
+        freshness: null
         columns:
           - name: interview_id
             description: Foreign key referencing the INTERVIEW that was given.

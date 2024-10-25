@@ -11,6 +11,7 @@
 - Fixed an issue where the dbt package would error due to a missing `CONTACT_LINK` source table for users without the titular source data, even if it was enabled in the Fivetran Connector. A null-filled table will now be generated in such cases.
 
 ## Under the hood
+- Turned off freshness tests for `USER`/`USERS` and `INTERVIEW_USER`/`INTERVIEWER_USER` to avoid possible conflicts.
 - Updated temporary models to union source data using the `fivetran_utils.union_data` macro.
 - Added the `source_relation` column in each staging model to identify the origin of each field, utilizing the `fivetran_utils.source_relation` macro.
 - Updated tests to include the new `source_relation` column.

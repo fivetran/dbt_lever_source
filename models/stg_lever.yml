@@ -16,6 +16,8 @@ models:
         description: "{{ doc('source_relation') }}"
       - name: opportunity_id
         description: Unique ID of the opportunity.
+        tests:
+          - not_null
       - name: archived_at
         description: Timestamp of when the opportunity was archived. 
       - name: archived_reason_id
@@ -81,7 +83,9 @@ models:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
       - name: posting_id
-        description: Unique ID of the job posting. 
+        description: Unique ID of the job posting.
+        tests:
+          - not_null
       - name: job_commitment
         description: Tag for job position work type (e.g. Full-time, Part-time, Internship).
       - name: job_department
@@ -129,6 +133,8 @@ models:
         description: "{{ doc('source_relation') }}"
       - name: posting_id
         description: Foreign key referencing the id of the job POSTING.
+        tests:
+          - not_null
       - name: tag_name
         description: Text of the posting's individual tag.
 
@@ -154,6 +160,8 @@ models:
         description: "{{ doc('source_relation') }}"
       - name: user_id
         description: Unique id of the user. 
+        tests:
+          - not_null
       - name: access_role
         description: >
           The user's access role, which can be 'super admin', 'admin', 'team member', 'limited team member', or 'interviewer'.
@@ -193,6 +201,8 @@ models:
         description: "{{ doc('source_relation') }}"
       - name: opportunity_id
         description: Foreign key referencing the id of the OPPORTUNITY.
+        tests:
+          - not_null
       - name: updated_at
         description: Timestamp of when the opportunity was changed to this stage.
       - name: stage_id
@@ -214,6 +224,8 @@ models:
         description: "{{ doc('source_relation') }}"
       - name: stage_id
         description: Unique id of the stage.
+        tests:
+          - not_null
       - name: stage_name
         description: Title of the stage.
 
@@ -230,6 +242,8 @@ models:
         description: "{{ doc('source_relation') }}"
       - name: opportunity_id
         description: Foreign key referencing the OPPORTUNITY that was sourced. 
+        tests:
+          - not_null
       - name: source
         description: Where this opportunity was sourced from (ie 'linkedin').
 
@@ -246,6 +260,8 @@ models:
         description: "{{ doc('source_relation') }}"
       - name: opportunity_id
         description: Foreign key referencing the OPPORTUNITY that was tagged.
+        tests:
+          - not_null
       - name: tag_name
         description: Text of the tag associated with this opportunity.
 
@@ -261,6 +277,8 @@ models:
         description: "{{ doc('source_relation') }}"
       - name: application_id
         description: Unique ID of the application.
+        tests:
+          - not_null
       - name: archived_at
         description: Timestamp of when the application was last archived.
       - name: archived_reason_id
@@ -307,6 +325,8 @@ models:
         description: "{{ doc('source_relation') }}"
       - name: offer_id
         description: Unique ID of the offer.
+        tests:
+          - not_null
       - name: opportunity_id 
         description: Unique ID of the candidate or opportunity??
       - name: created_at
@@ -339,6 +359,8 @@ models:
         description: "{{ doc('source_relation') }}"
       - name: archive_reason_id
         description: Unique id of the archive reason.
+        tests:
+          - not_null
       - name: archive_reason_title
         description: Name of the archive reason as shown in the Lever UI. 
 
@@ -354,6 +376,8 @@ models:
         description: "{{ doc('source_relation') }}"
       - name: interview_id
         description: Unique ID of the interview. 
+        tests:
+          - not_null
       - name: canceled_at
         description: Timestamp of when the interview was canceled, if canceled.
       - name: created_at
@@ -402,8 +426,12 @@ models:
         description: "{{ doc('source_relation') }}"
       - name: feedback_form_id
         description: Foreign key referencing the FEEDBACK_FORM submitted for this interview.
+        tests:
+          - not_null
       - name: interview_id  
         description: Foreign key referencing the INTERVIEW that was given feedback for.
+        tests:
+          - not_null
 
   - name: stg_lever__feedback_form
     description: >
@@ -418,6 +446,8 @@ models:
         description: "{{ doc('source_relation') }}"
       - name: feedback_form_id
         description: Unique id of the feedback form. 
+        tests:
+          - not_null
       - name: completed_at
         description: Timestamp of when the feedback form was completed.
       - name: created_at
@@ -455,6 +485,8 @@ models:
         description: "{{ doc('source_relation') }}"
       - name: feedback_form_id
         description: Foreign key referencing the FEEDBACK_FORM that this field is found in. 
+        tests:
+          - not_null
       - name: field_index
         description: Numerical index of the field's position in the feedback form. 
       - name: value_index
@@ -487,6 +519,8 @@ models:
     # requistion can have custom fields 
       - name: requisition_id
         description: Unique id of the requisition.
+        tests:
+          - not_null
       - name: is_backfill
         description: > 
           Boolean that is true if the requisition represents a backfill or new headcount. 
@@ -540,8 +574,12 @@ models:
         description: "{{ doc('source_relation') }}"
       - name: posting_id
         description: Foreign key referencing the POSTING created for this requisition.
+        tests:
+          - not_null
       - name: requisition_id
         description: Foreign key referencing the REQUISITION associated with this posting. 
+        tests:
+          - not_null
 
   - name: stg_lever__contact_email
     description: Table capturing the emails associated with a contact. 
@@ -556,6 +594,8 @@ models:
         description: "{{ doc('source_relation') }}"
       - name: contact_id
         description: Unique ID of the contact in Lever. 
+        tests:
+          - not_null
       - name: email 
         description: Contact's email address.
 
@@ -572,6 +612,8 @@ models:
         description: "{{ doc('source_relation') }}"
       - name: contact_id
         description: Unique ID of the contact in Lever. 
+        tests:
+          - not_null
       - name: index
         description: The index of this phone number for this contact (there can be multiple phone numbers per contact).
       - name: phone_type
@@ -593,8 +635,12 @@ models:
         description: "{{ doc('source_relation') }}"
       - name: offer_id
         description: Foriegn key referencing the OFFER for the requisition. 
+        tests:
+          - not_null
       - name: requisition_id
         description: Foriegn key referencing the REQUISITION which the offer was made against. 
+        tests:
+          - not_null
       - name: _fivetran_deleted
         description: Boolean that is true if the offer-requisition relationship has been soft-deleted.
   
@@ -611,6 +657,8 @@ models:
         description: "{{ doc('source_relation') }}"
       - name: contact_id
         description: Unique id of the contact associated with one or more opportunities.
+        tests:
+          - not_null
       - name: link
         description: Url of the individual link.
       
@@ -626,6 +674,8 @@ models:
         description: "{{ doc('source_relation') }}"
       - name: id  
         description: Unique id of the resume file. 
+        tests:
+          - not_null
       - name: created_at
         description: Timestamp of when the resume was created in Lever. 
       - name: file_download_url

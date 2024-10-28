@@ -16,13 +16,19 @@ fields as (
                 staging_columns=get_posting_tag_columns()
             )
         }}
-        
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='lever_union_schemas', 
+            union_database_variable='lever_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
-    
-    select 
+
+    select
+        source_relation, 
         posting_id,
         {% if target.type == 'redshift' %}
         "tag"

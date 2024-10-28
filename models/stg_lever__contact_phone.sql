@@ -1,4 +1,3 @@
-
 with base as (
 
     select * 
@@ -15,13 +14,19 @@ fields as (
                 staging_columns=get_contact_phone_columns()
             )
         }}
-        
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='lever_union_schemas', 
+            union_database_variable='lever_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
-    
-    select 
+
+    select
+        source_relation, 
         contact_id,
         index,
         type as phone_type,

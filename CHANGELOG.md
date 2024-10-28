@@ -1,3 +1,22 @@
+# dbt_lever_source v0.7.0
+[PR #26](https://github.com/fivetran/dbt_lever_source/pull/26) includes the following updates:
+
+## Features
+- For Fivetran Lever connectors created on or after July 27, 2024, the `USER` and `INTERVIEWER_USER` source tables have been renamed to `USERS` and `INTERVIEW_USER`, respectively. This package now prioritizes the `USERS` and `INTERVIEW_USER` tables if available, falling back to `USER` and `INTERVIEWER_USER` if not.
+  - If you have both tables in your schema and would like to specify this package to leverage the `USER` and/or `INTERVIEWER_USER` tables, you can set the variables `lever__using_users` and/or `lever__using_interview_user` to false in your `dbt_project.yml`.
+  - For more information, refer to the [July 2024 connector release notes](https://fivetran.com/docs/connectors/applications/lever/changelog#july2024) and the related [README section](https://github.com/fivetran/dbt_lever_source/blob/main/README.md##leveraging-legacy-connector-table-names).
+- Introduced the ability to union source data from multiple Lever connectors. For more details, see the related [README section](https://github.com/fivetran/dbt_lever_source/blob/main/README.md#union-multiple-connectors).
+
+## Bug fixes
+- Fixed an issue where the dbt package would error due to a missing `CONTACT_LINK` source table for users without the titular source data, even if it was enabled in the Fivetran Connector. A null-filled table will now be generated in such cases.
+
+## Under the hood
+- Turned off freshness tests for `USER`/`USERS` and `INTERVIEW_USER`/`INTERVIEWER_USER` to avoid possible conflicts.
+- Updated temporary models to union source data using the `fivetran_utils.union_data` macro.
+- Added the `source_relation` column in each staging model to identify the origin of each field, utilizing the `fivetran_utils.source_relation` macro.
+- Updated tests to include the new `source_relation` column.
+- Added `not_null` tests for the relevant fields within each staging model.
+
 # dbt_lever_source v0.6.0
 ## 🎉 Feature Update 🎉
 - PostgreSQL and Databricks compatibility! ([#21](https://github.com/fivetran/dbt_lever_source/pull/21))

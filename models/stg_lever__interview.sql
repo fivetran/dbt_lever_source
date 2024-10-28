@@ -1,4 +1,3 @@
-
 with base as (
 
     select * 
@@ -15,13 +14,19 @@ fields as (
                 staging_columns=get_interview_columns()
             )
         }}
-        
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='lever_union_schemas', 
+            union_database_variable='lever_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
-    
-    select 
+
+    select
+        source_relation, 
         cast(_fivetran_synced as {{ dbt.type_timestamp() }}) as _fivetran_synced,
         cast(canceled_at as {{ dbt.type_timestamp() }}) as canceled_at,
         cast(created_at as {{ dbt.type_timestamp() }}) as created_at,

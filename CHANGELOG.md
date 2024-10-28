@@ -15,6 +15,7 @@
 - Updated temporary models to union source data using the `fivetran_utils.union_data` macro.
 - Added the `source_relation` column in each staging model to identify the origin of each field, utilizing the `fivetran_utils.source_relation` macro.
 - Updated tests to include the new `source_relation` column.
+- Added `not_null` tests for the relevant fields within each staging model.
 
 # dbt_lever_source v0.6.0
 ## 🎉 Feature Update 🎉

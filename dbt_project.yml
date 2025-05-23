@@ -34,5 +34,5 @@ vars:
 models:
   lever_source:
     tmp:
-      materialized: view
-    materialized: table
+      +materialized: view
+    +materialized: table

@@ -1,7 +1,14 @@
-# dbt_lever_source version.version
+# dbt_lever_source v0.7.1
+
+## Under the Hood
+- Prepends `materialized` configs in the package's `dbt_project.yml` file with `+` to improve compatibility with the newer versions of dbt-core starting with v1.10.0. ([PR #30](https://github.com/fivetran/dbt_lever_source/pull/30))
+- Updates the package maintainer pull request template. ([PR #31](https://github.com/fivetran/dbt_lever_source/pull/31))
 
 ## Documentation
 - Corrected references to connectors and connections in the README. ([#29](https://github.com/fivetran/dbt_lever_source/pull/29))
+
+## Contributors
+- [@b-per](https://github.com/b-per) ([PR #30](https://github.com/fivetran/dbt_lever_source/pull/30))
 
 # dbt_lever_source v0.7.0
 [PR #26](https://github.com/fivetran/dbt_lever_source/pull/26) includes the following updates:

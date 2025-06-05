@@ -3,6 +3,7 @@
 {% set columns = [
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
     {"name": "created_at", "datatype": dbt.type_timestamp()},
+    {"name": "created_at_epoch", "datatype": dbt.type_bigint()},
     {"name": "file_download_url", "datatype": dbt.type_string()},
     {"name": "file_ext", "datatype": dbt.type_string()},
     {"name": "file_name", "datatype": dbt.type_string()},

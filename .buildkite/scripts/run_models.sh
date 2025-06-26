@@ -18,6 +18,7 @@ cd integration_tests
 dbt deps
 dbt seed --target "$db" --full-refresh
 dbt compile --target "$db"
+dbt source freshness --target "$db" || echo "...Only verifying freshness runs…"
 dbt run --target "$db" --full-refresh
 dbt test --target "$db"
 dbt run --vars '{lever__using_users: false, lever__using_interview_user: false, lever_using_posting_tag: false, lever_using_requisitions:false}' --target "$db" --full-refresh

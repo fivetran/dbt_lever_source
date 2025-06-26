@@ -14,7 +14,8 @@
 ## What does this dbt package do?
 - Materializes [Lever staging tables](https://fivetran.github.io/dbt_lever_source/#!/overview/lever_source/models/?g_v=1) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/lever/#schemainformation). These staging tables clean, test, and prepare your Lever data from [Fivetran's connector](https://fivetran.com/docs/applications/lever) for analysis by doing the following:
   - Name columns for consistency across all packages and for easier analysis
-  - Adds freshness tests to source data
+  - Adds freshness tests to source data  
+      - dbt Core >= 1.9.6 is required to run freshness tests out of the box.
   - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
 - Generates a comprehensive data dictionary of your Lever data through the [dbt docs site](https://fivetran.github.io/dbt_lever_source/).
 - These tables are designed to work simultaneously with our [Lever transformation package](https://github.com/fivetran/dbt_lever).
@@ -31,7 +32,7 @@ If you  are **not** using the [Lever transformation package](https://github.com/
 ```yaml
 packages:
   - package: fivetran/lever_source
-    version: [">=0.7.0", "<0.8.0"]
+    version: [">=0.8.0", "<0.9.0"]
 ```
 ### Step 3: Define database and schema variables
 By default, this package runs using your destination and the `lever` schema. If this is not where your Lever data is (for example, if your Lever schema is named `lever_fivetran`), add the following configuration to your root `dbt_project.yml` file:

@@ -1,6 +1,6 @@
 # dbt_lever_source v0.8.0
 
-[PR #32](https://github.com/fivetran/dbt_lever_source/pull/32) includes the following updates:
+[PR #33](https://github.com/fivetran/dbt_lever_source/pull/33) includes the following updates:
 
 ## Breaking Change for dbt Core < 1.9.6
 

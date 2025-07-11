@@ -135,9 +135,9 @@ sources:
           - name: posting_id
             description: Foreign key referencing the id of the job POSTING.
           - name: tag
-            description: Text of the posting's individual tag.
-          - name: tags
             description: Deprecated in favor of the `tags` column. Text of the posting's individual tag.
+          - name: tags
+            description: Text of the posting's individual tag.
           - name: _fivetran_deleted
             description: Boolean that is true if the posting-tag association has been deleted.
             

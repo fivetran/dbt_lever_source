@@ -1,6 +1,6 @@
 # dbt_lever_source v0.8.1
 
-PR # Includes the following updates:
+[PR #34](https://github.com/fivetran/dbt_lever_source/pull/34) Includes the following updates:
 
 ## Bug Fixes
 - The `opportunity_id` column in the `stg_lever__offer` model was generated via the `candidate_id` field. This has now been updated to leverage the true `opportunity_id` field if present. If not present, the `candidate_id` field will be used.

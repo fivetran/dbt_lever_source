@@ -320,6 +320,7 @@ models:
           combination_of_columns:
             - source_relation 
             - offer_id
+            - opportunity_id
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
@@ -328,7 +329,7 @@ models:
         tests:
           - not_null
       - name: opportunity_id 
-        description: Unique ID of the candidate or opportunity??
+        description: Unique ID of the opportunity. Will use candidate_id if opportunity_id is not present.
       - name: created_at
         description: Timestamp of when the offer was created.
       - name: creator_user_id

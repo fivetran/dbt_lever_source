@@ -2,7 +2,8 @@
 
 {% set columns = [
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
-    {"name": "opportunity_id", "datatype": dbt.type_string()}
+    {"name": "opportunity_id", "datatype": dbt.type_string()},
+    {"name": "tags", "datatype": dbt.type_string()}
 ] %}
 
 {% if target.type == 'redshift' %}

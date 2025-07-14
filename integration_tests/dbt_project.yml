@@ -5,32 +5,32 @@ profile: 'integration_tests'
 vars:
   lever_schema: lever_source_integration_tests
   lever_source:
-    lever_application_identifier: "application" # @docs-include
-    lever_archive_reason_identifier: "archive_reason" # @docs-include
-    lever_feedback_form_identifier: "feedback_form" # @docs-include
-    lever_feedback_form_field_identifier: "feedback_form_field" # @docs-include
-    lever_interview_feedback_identifier: "interview_feedback" # @docs-include
-    lever_interview_identifier: "interview" # @docs-include
-    lever_interviewer_user_identifier: "interviewer_user" # @docs-include
-    lever_interview_user_identifier: "interview_user" # @docs-include
-    lever_offer_identifier: "offer" # @docs-include
-    lever_opportunity_source_identifier: "opportunity_source" # @docs-include
-    lever_opportunity_stage_history_identifier: "opportunity_stage_history" # @docs-include
-    lever_opportunity_tag_identifier: "opportunity_tag" # @docs-include
-    lever_opportunity_identifier: "opportunity" # @docs-include
-    lever_posting_interview_identifier: "posting_interview" # @docs-include
-    lever_posting_tag_identifier: "posting_tag" # @docs-include
-    lever_posting_identifier: "posting" # @docs-include
-    lever_requisition_posting_identifier: "requisition_posting" # @docs-include
-    lever_requisition_offer_identifier: "requisition_offer" # @docs-include
-    lever_requisition_identifier: "requisition" # @docs-include
-    lever_stage_identifier: "stage" # @docs-include
-    lever_user_identifier: "user" # @docs-include
-    lever_users_identifier: "users" # @docs-include
-    lever_contact_email_identifier: "contact_email" # @docs-include
-    lever_contact_phone_identifier: "contact_phone" # @docs-include
-    lever_contact_link_identifier: "contact_link" # @docs-include
-    lever_resume_identifier: "resume" # @docs-include
+    lever_application_identifier: "application"
+    lever_archive_reason_identifier: "archive_reason"
+    lever_feedback_form_identifier: "feedback_form"
+    lever_feedback_form_field_identifier: "feedback_form_field"
+    lever_interview_feedback_identifier: "interview_feedback"
+    lever_interview_identifier: "interview"
+    lever_interviewer_user_identifier: "interviewer_user"
+    lever_interview_user_identifier: "interview_user"
+    lever_offer_identifier: "offer"
+    lever_opportunity_source_identifier: "opportunity_source"
+    lever_opportunity_stage_history_identifier: "opportunity_stage_history"
+    lever_opportunity_tag_identifier: "opportunity_tag"
+    lever_opportunity_identifier: "opportunity"
+    lever_posting_interview_identifier: "posting_interview"
+    lever_posting_tag_identifier: "posting_tag"
+    lever_posting_identifier: "posting"
+    lever_requisition_posting_identifier: "requisition_posting"
+    lever_requisition_offer_identifier: "requisition_offer"
+    lever_requisition_identifier: "requisition"
+    lever_stage_identifier: "stage"
+    lever_user_identifier: "user"
+    lever_users_identifier: "users"
+    lever_contact_email_identifier: "contact_email"
+    lever_contact_phone_identifier: "contact_phone"
+    lever_contact_link_identifier: "contact_link"
+    lever_resume_identifier: "resume"
 seeds:
   lever_source_integration_tests:
     +column_types:

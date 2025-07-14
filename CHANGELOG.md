@@ -1,3 +1,23 @@
+# dbt_lever_source v0.8.1
+
+[PR #34](https://github.com/fivetran/dbt_lever_source/pull/34) Includes the following updates:
+
+## Bug Fixes
+- The `opportunity_id` column in the `stg_lever__offer` model was generated via the `candidate_id` field. This has now been updated to leverage the true `opportunity_id` field if present. If not present, the `candidate_id` field will be used.
+
+## Feature Updates
+- Introduced the `tags` column in the below staging models. This field is preferred over the deprecated `tag` column. The resulting column in the staging model will still be `tag_name`. No schema change results from this update, only column preference.
+  - `stg_lever__opportunity_tag`
+  - `stg_lever__posting_tag`
+- The uniqueness test for the `stg_lever__opportunity` model has been adjusted to include the `opportunity_id` in the unique combination of columns test. This update was made to correspond with connector updates. See below for the columns used in the uniqueness test.
+  - `source_relation`
+  - `offer_id`
+  - `opportunity_id`
+
+## Under the Hood
+- Updated documentation for all above new/modified columns.
+- Introduced the generate-docs github workflow for consistent docs generation.
+
 # dbt_lever_source v0.8.0
 
 [PR #33](https://github.com/fivetran/dbt_lever_source/pull/33) includes the following updates:

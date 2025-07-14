@@ -30,10 +30,11 @@ final as (
     select
         source_relation, 
         posting_id,
+        coalesce(tags,
         {% if target.type == 'redshift' %}
         "tag"
         {% else %} tag {% endif %}
-        as tag_name,
+        ) as tag_name,
         cast(_fivetran_synced as {{ dbt.type_timestamp() }}) as _fivetran_synced
 
     from fields

@@ -32,6 +32,8 @@ vars:
     lever_contact_link_identifier: "contact_link"
     lever_resume_identifier: "resume"
 seeds:
+  +docs:
+    show: False
   lever_source_integration_tests:
     +column_types:
       _fivetran_synced: timestamp
@@ -112,3 +114,4 @@ dispatch:
 
 flags:
   send_anonymous_usage_stats: False
+  use_colors: True

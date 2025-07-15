@@ -34,6 +34,8 @@ vars:
 seeds:
   +docs:
     show: False
+  +docs:
+    show: False
   lever_source_integration_tests:
     +column_types:
       _fivetran_synced: timestamp

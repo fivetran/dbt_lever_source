@@ -1,16 +1,19 @@
-<p align="center">
+# [DEPRECATED] Lever Source dbt Package
+
+> _This package has been archived and is no longer maintained. Use [`dbt_lever`](https://github.com/fivetran/dbt_lever) instead, which now contains all models previously found here._
+
+<p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_lever_source/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
     <a alt="dbt-core">
         <img src="https://img.shields.io/badge/dbt_Core™_version->=1.3.0_<2.0.0-orange.svg" /></a>
     <a alt="Maintained?">
-        <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" /></a>
+        <img src="https://img.shields.io/badge/Maintained%3F-no-green.svg" /></a>
     <a alt="PRs">
-        <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
+        <img src="https://img.shields.io/badge/Contributions-closed-blueviolet" /></a>
 </p>
 
-# Lever Source dbt Package ([Docs](https://fivetran.github.io/dbt_lever_source/))
 ## What does this dbt package do?
 - Materializes [Lever staging tables](https://fivetran.github.io/dbt_lever_source/#!/overview/lever_source/models/?g_v=1) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/lever/#schemainformation). These staging tables clean, test, and prepare your Lever data from [Fivetran's connector](https://fivetran.com/docs/applications/lever) for analysis by doing the following:
   - Name columns for consistency across all packages and for easier analysis

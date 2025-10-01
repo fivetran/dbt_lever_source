@@ -2,7 +2,7 @@
 
 > _This package has been archived and is no longer maintained. Use [`dbt_lever`](https://github.com/fivetran/dbt_lever) instead, which now contains all models previously found here._
 
-<p align="center">
+<p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_lever_source/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
@@ -14,7 +14,6 @@
         <img src="https://img.shields.io/badge/Contributions-closed-blueviolet" /></a>
 </p>
 
-# Lever Source dbt Package ([Docs](https://fivetran.github.io/dbt_lever_source/))
 ## What does this dbt package do?
 - Materializes [Lever staging tables](https://fivetran.github.io/dbt_lever_source/#!/overview/lever_source/models/?g_v=1) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/lever/#schemainformation). These staging tables clean, test, and prepare your Lever data from [Fivetran's connector](https://fivetran.com/docs/applications/lever) for analysis by doing the following:
   - Name columns for consistency across all packages and for easier analysis
